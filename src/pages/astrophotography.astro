@@ -2,11 +2,11 @@
 import Layout from '../layouts/Layout.astro';
 
 const photos = [
-  { src: '/astrophotography/2025-05-22_03-30-35_454.webp', alt: 'Astrophotography photo' },
-  { src: '/astrophotography/23-08-14 23-09-40 0690.webp', alt: 'Astrophotography photo' },
-  { src: '/astrophotography/294518D8-40EC-4C93-B49D-5A4BF14A0BD5DSC00146b.webp', alt: 'Astrophotography photo' },
-  { src: '/astrophotography/2A5F4959-4464-4343-B76B-69D393E8F9D12024-08-10_21-26-04_924.webp', alt: 'Astrophotography photo' },
-  { src: '/astrophotography/DSC03667.webp', alt: 'Astrophotography photo' },
+  { src: '/astrophotography/2025-05-22_03-30-35_454.webp', alt: 'Milky Way over Cape Lookout, North Carolina by Cas Medlin' },
+  { src: '/astrophotography/23-08-14 23-09-40 0690.webp', alt: 'Star over Yurt in Maine by Cas Medlin' },
+  { src: '/astrophotography/294518D8-40EC-4C93-B49D-5A4BF14A0BD5DSC00146b.webp', alt: ' Red and Green Aurora borealis over Iredell County, NC by Cas Medlin' },
+  { src: '/astrophotography/2A5F4959-4464-4343-B76B-69D393E8F9D12024-08-10_21-26-04_924.webp', alt: 'Milky Way over Shenandoah National Park by Cas Medlin' },
+  { src: '/astrophotography/DSC03667.webp', alt: 'Pink Aurora borealis over Iredell County, NC by Cas Medlin' },
 ];
 ---
 
@@ -21,12 +21,27 @@ const photos = [
 </Layout>
 
 <style>
+  .page-header {
+    max-width: 1800px;
+    margin: 0 auto 2rem;
+    padding: 0 0.5rem;
+  }
+  .page-header h1 {
+    font-size: 2rem;
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+  }
+  .page-header p {
+    color: #a3a3a3;
+    font-size: 1rem;
+  }
   .gallery {
     max-width: 1800px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 0.5rem;
+    gap: 1rem;
+    padding: 0 0.5rem;
   }
   @media (min-width: 768px) {
     .gallery {
@@ -41,10 +56,17 @@ const photos = [
   .gallery-item {
     display: block;
     overflow: hidden;
+    border-radius: 8px;
+    border: 1px solid #2a2a2a;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .gallery-item:hover {
+    border-color: #404040;
+    transform: translateY(-2px);
   }
   .gallery-item img {
     width: 100%;
-    height: auto;
+    height: 100%;
     object-fit: cover;
     display: block;
     transition: transform 0.5s;
