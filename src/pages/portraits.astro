@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const photos = [
+  { src: '/portraits/DSC06596.webp', alt: 'Portrait photo' },
+  { src: '/portraits/DSC05371 2.webp', alt: 'Portrait photo' },
+  { src: '/portraits/2025-07-23_21-25-17_620.webp', alt: 'Portrait photo' },
+  { src: '/portraits/2025-07-23_22-20-00_081.webp', alt: 'Portrait photo' },
+  { src: '/portraits/DSC01354b.webp', alt: 'Portrait photo' },
+  { src: '/portraits/DSC04264.webp', alt: 'Portrait photo' },
+  { src: '/portraits/DSC04363.webp', alt: 'Portrait photo' },
+  { src: '/portraits/DSC04666.webp', alt: 'Portrait photo' },
+];
+---
+
+<Layout title="Portrait Photography" description="Professional portrait photography services in Iredell County, NC. Family portraits, headshots, senior photos, and creative portrait sessions near Charlotte, Mooresville, and Troutman.">
+  <div class="gallery">
+    {photos.map((photo) => (
+      <a href={photo.src} class="gallery-item">
+        <img src={photo.src} alt={photo.alt} loading="lazy" />
+      </a>
+    ))}
+  </div>
+</Layout>
+
+<style>
+  .gallery {
+    max-width: 1800px;
+    margin: 0 auto;
+    columns: 2;
+    column-gap: 0.5rem;
+  }
+  @media (min-width: 768px) { .gallery { columns: 3; } }
+  @media (min-width: 1024px) { .gallery { columns: 4; } }
+  .gallery-item { display: block; break-inside: avoid; margin-bottom: 0.5rem; }
+  .gallery-item img { width: 100%; height: auto; display: block; transition: transform 0.5s; }
+  .gallery-item:hover img { transform: scale(1.02); }
+</style>

@@ -1,0 +1,89 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="About" description="Meet Cas Medlin - freelance photographer and graphic designer based in Iredell County, North Carolina. Christian, creative, and passionate about capturing life's moments." image="/DSC06596.webp">
+  <div class="content">
+    <h1>About</h1>
+    <div class="about-section">
+      <div class="image-container">
+        <img src="/DSC06596.webp" alt="Profile picture" />
+      </div>
+      <div class="text-container">
+        <p>Hi I am Cas Medlin a freelance photographer based in Iredell County, North Carolina in the greater Charolette area. Which is near Mooresville, Troutman, and Statesville. I am a passionate Christian, photographer, and graphic designer.</p>
+        <div class="contact-card">
+          <h2>Contact Me</h2>
+          <p>If you’d like to book a session or talk about a project, email me directly.</p>
+          <a href="mailto:me@casmedlin.com" class="email-link">me@casmedlin.com</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+  h1 {
+    font-size: 2rem;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+  }
+  .about-section {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+  .image-container {
+    flex: 1;
+  }
+  .image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  .text-container {
+    flex: 1;
+  }
+  .text-container p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #a3a3a3;
+    margin-bottom: 1rem;
+  }
+  .contact-card {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border: 1px solid #2d2d2d;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.04);
+  }
+  .contact-card h2 {
+    margin-bottom: 0.75rem;
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+  .email-link {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.75rem 1.25rem;
+    border: 1px solid #404040;
+    border-radius: 9999px;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .email-link:hover {
+    border-color: #fff;
+    background: #171717;
+  }
+  @media (max-width: 768px) {
+    .about-section {
+      flex-direction: column;
+    }
+  }
+</style>

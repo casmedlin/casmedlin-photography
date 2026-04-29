@@ -1,0 +1,46 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Event Photography" description="Professional event photography services in Iredell County, NC. Capturing special moments at weddings, parties, corporate events, and gatherings near Charlotte, Mooresville, and Statesville.">
+  <div class="gallery">
+    <a href="DSC00970.webp" class="gallery-item">
+      <img src="DSC00970.webp" alt="Portrait" loading="lazy" />
+    </a>
+    <a href="DSC00394.webp" class="gallery-item">
+      <img src="DSC00394.webp" alt="Portrait" loading="lazy" />
+    </a>
+    <a href="DSC01007(1).webp" class="gallery-item">
+      <img src="DSC01007(1).webp" alt="Portrait" loading="lazy" />
+    </a>
+    <a href="DSC01001(1).webp" class="gallery-item">
+      <img src="DSC01001(1).webp" alt="Portrait" loading="lazy" />
+    </a>
+    <a href="DSC00944.webp" class="gallery-item">
+      <img src="DSC00944.webp" alt="Portrait" loading="lazy" />
+    </a>
+    <a href="DSC00882.webp" class="gallery-item">
+      <img src="DSC00882.webp" alt="Portrait" loading="lazy" />
+    </a>
+    <a href="DSC00416.webp" class="gallery-item">
+      <img src="DSC00416.webp" alt="Portrait" loading="lazy" />
+    </a>
+    <a href="DSC01765.webp" class="gallery-item">
+      <img src="DSC01765.webp" alt="Portrait" loading="lazy" />
+    </a>
+  </div>
+</Layout>
+
+<style>
+  .gallery {
+    max-width: 1800px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+  @media (min-width: 768px) { .gallery { grid-template-columns: repeat(3, 1fr); } }
+  @media (min-width: 1024px) { .gallery { grid-template-columns: repeat(4, 1fr); } }
+  .gallery-item { display: block; overflow: hidden; }
+  .gallery-item img { width: 100%; height: auto; object-fit: cover; transition: transform 0.5s; }
+  .gallery-item:hover img { transform: scale(1.05); }
+</style>

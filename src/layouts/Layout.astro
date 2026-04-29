@@ -1,0 +1,494 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  canonical?: string;
+}
+
+const { title, description = 'Photography portfolio by Cas Medlin, freelance photographer based in Iredell County, North Carolina specializing in landscapes, wildlife, portraits, events, pets, and astrophotography.', image = '/favicon.webp', canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://casmedlin.com').toString() } = Astro.props;
+  const siteName = 'Cas Medlin';
+const pageUrl = new URL(Astro.url.pathname, Astro.site ?? 'https://casmedlin.com').toString();
+const ogImage = image.startsWith('http') ? image : new URL(image, Astro.site ?? 'https://casmedlin.com').toString();
+
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/landscapes', label: 'Landscapes' },
+  { href: '/events', label: 'Events' },
+  { href: '/pets', label: 'Pets' },
+  { href: '/portraits', label: 'Portraits' },
+  { href: '/wildlife', label: 'Wildlife' },
+  { href: '/astrophotography', label: 'Astrophotography' },
+  { href: '/about', label: 'About' },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/webp" href="/favicon.webp" />
+    <link rel="canonical" href={canonical} />
+    <title>{title} | {siteName}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="Cas Medlin" />
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={`${title} | ${siteName}`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={pageUrl} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:alt" content={title} />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:locale" content="en_US" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={`${title} | ${siteName}`} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={title} />
+    <meta name="twitter:creator" content="@casmedlin" />
+    
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Person',
+      name: 'Cas Medlin',
+      jobTitle: 'Freelance Photographer',
+      description: description,
+      url: pageUrl,
+      image: ogImage,
+      email: 'mailto:me@casmedlin.com',
+      sameAs: [
+        'https://instagram.com/casmedlin',
+        'https://facebook.com/casmedlin',
+        'https://youtube.com/@casmedlin'
+      ],
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Iredell County',
+        addressRegion: 'NC',
+        addressCountry: 'US'
+      },
+      knowsAbout: ['Landscape Photography', 'Wildlife Photography', 'Portrait Photography', 'Event Photography', 'Pet Photography', 'Astrophotography']
+    })} />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LHBPEXY32" is:inline></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5LHBPEXY32');
+    </script>
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="nav-inner">
+        <a href="/" class="logo">
+          <img src="/favicon.webp" alt="Cas Medlin Photography" class="logo-img" />
+          <span class="logo-text">{siteName}</span>
+        </a>
+        <button class="menu-toggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="nav-links" id="nav-links">
+          {navLinks.map((link) => (
+            <a href={link.href} class="nav-link">{link.label}</a>
+          ))}
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <p>© {new Date().getFullYear()} Cas Medlin</p>
+        <div class="contact-info">
+          <a href="mailto:me@casmedlin.com">me@casmedlin.com</a>
+        </div>
+        <div class="social-links">
+          <a href="https://instagram.com/casmedlin" target="_blank" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </a>
+          <a href="https://facebook.com/casmedlin" target="_blank" aria-label="Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+          </a>
+          <a href="https://youtube.com/@casmedlin" target="_blank" aria-label="YouTube">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+          </a>
+        </div>
+        <div class="footer-links">
+          <a href="/sitemap">Sitemap</a>
+          <a href="/privacy-policy">Privacy Policy</a>
+        </div>
+      </div>
+    </footer>
+
+    <div id="lightbox" class="lightbox" onclick="if(event.target === this) closeLightbox()">
+      <button class="lightbox-close" id="lightbox-close-btn">×</button>
+      <div class="lightbox-controls">
+        <button class="lightbox-prev" id="lightbox-prev-btn">‹</button>
+        <button class="lightbox-next" id="lightbox-next-btn">›</button>
+      </div>
+      <img id="lightbox-img" src="" alt="" />
+      <p id="lightbox-caption" class="lightbox-caption"></p>
+    </div>
+
+    <script type="module">
+      const images = /** @type {{src: string, caption: string}[]} */ ([]);
+      let currentIndex = 0;
+      
+      function initGallery() {
+        document.querySelectorAll('.gallery-item').forEach((item, index) => {
+          const anchor = /** @type {HTMLAnchorElement} */ (item);
+          const img = /** @type {HTMLImageElement | null} */ (anchor.querySelector('img'));
+          if (img) {
+            images.push({
+              src: img.src,
+              caption: anchor.dataset.caption?.trim() || img.alt || ''
+            });
+            anchor.addEventListener('click', (e) => {
+              e.preventDefault();
+              openLightbox(index);
+            });
+          }
+        });
+
+        document.getElementById('lightbox-close-btn')?.addEventListener('click', closeLightbox);
+        document.getElementById('lightbox-prev-btn')?.addEventListener('click', () => changeImage(-1));
+        document.getElementById('lightbox-next-btn')?.addEventListener('click', () => changeImage(1));
+        document.querySelector('.menu-toggle')?.addEventListener('click', toggleMenu);
+        document.querySelector('.nav-links')?.addEventListener('click', toggleMenu);
+      }
+
+      function openLightbox(index) {
+        currentIndex = index;
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = /** @type {HTMLImageElement | null} */ (document.getElementById('lightbox-img'));
+        const lightboxCaption = document.getElementById('lightbox-caption');
+        if (lightbox && lightboxImg) {
+          lightboxImg.src = images[index]?.src || '';
+          lightboxImg.alt = images[index]?.caption || 'Lightbox image';
+          if (lightboxCaption) {
+            lightboxCaption.textContent = images[index]?.caption || '';
+            lightboxCaption.style.display = images[index]?.caption ? 'block' : 'none';
+          }
+          lightbox.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+      }
+
+      function closeLightbox() {
+        const lightbox = document.getElementById('lightbox');
+        if (lightbox) {
+          lightbox.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      }
+
+      function changeImage(direction) {
+        currentIndex += direction;
+        if (currentIndex < 0) currentIndex = images.length - 1;
+        if (currentIndex >= images.length) currentIndex = 0;
+        
+        const lightboxImg = /** @type {HTMLImageElement | null} */ (document.getElementById('lightbox-img'));
+        const lightboxCaption = document.getElementById('lightbox-caption');
+        if (lightboxImg && images[currentIndex]) {
+          lightboxImg.src = images[currentIndex].src;
+          lightboxImg.alt = images[currentIndex].caption || 'Lightbox image';
+          if (lightboxCaption) {
+            lightboxCaption.textContent = images[currentIndex].caption || '';
+            lightboxCaption.style.display = images[currentIndex].caption ? 'block' : 'none';
+          }
+        }
+      }
+
+      function toggleMenu() {
+        document.querySelector('.nav-links')?.classList.toggle('active');
+        document.querySelector('.menu-toggle')?.classList.toggle('active');
+      }
+
+      document.addEventListener('keydown', (e) => {
+        const lightbox = document.getElementById('lightbox');
+        if (lightbox && lightbox.classList.contains('active')) {
+          if (e.key === 'Escape') closeLightbox();
+          if (e.key === 'ArrowLeft') changeImage(-1);
+          if (e.key === 'ArrowRight') changeImage(1);
+        }
+      });
+
+      document.addEventListener('DOMContentLoaded', initGallery);
+    </script>
+  </body>
+</html>
+
+ <style>
+   * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+   }
+   img {
+     max-width: 100%;
+     height: auto;
+     display: block;
+   }
+   body {
+     background-color: #151515;
+     color: #fff;
+     font-family: system-ui, -apple-system, sans-serif;
+     min-height: 100vh;
+   }
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid #262626;
+  }
+  .nav-inner {
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    font-size: 1.125rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .logo-img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .logo-text {
+    display: inline;
+  }
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+  @media (max-width: 768px) {
+    .logo-img {
+      display: block;
+    }
+    .logo-text {
+      display: inline;
+    }
+    .nav-links {
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background: rgba(10, 10, 10, 0.98);
+      flex-direction: column;
+      padding: 1rem;
+      gap: 1rem;
+      display: none;
+      border-bottom: 1px solid #262626;
+    }
+    .nav-links.active {
+      display: flex;
+    }
+    .menu-toggle {
+      display: flex;
+    }
+  }
+  .nav-link {
+    font-size: 0.875rem;
+    letter-spacing: 0.025em;
+    color: #a3a3a3;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-link:hover {
+    color: #fff;
+  }
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: flex;
+    }
+  }
+  .menu-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #fff;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+  main {
+    padding-top: 80px;
+    padding-bottom: 48px;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  .footer {
+    border-top: 1px solid #262626;
+    padding: 2rem 0;
+    text-align: center;
+  }
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .footer p {
+    font-size: 0.875rem;
+    color: #737373;
+  }
+  .contact-info a {
+    color: #a3a3a3;
+    text-decoration: none;
+    font-size: 0.875rem;
+  }
+  .contact-info a:hover {
+    color: #fff;
+  }
+   .footer-links {
+     display: flex;
+     justify-content: center;
+     gap: 1.5rem;
+     margin-bottom: 0.5rem;
+   }
+   .footer-links a {
+     color: #666;
+     text-decoration: none;
+     font-size: 0.875rem;
+     transition: color 0.2s;
+   }
+   .footer-links a:hover {
+     color: #a3a3a3;
+   }
+   .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+   }
+  .social-links a {
+    color: #a3a3a3;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+  }
+  .social-links a:hover {
+    color: #fff;
+  }
+  .lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+.lightbox.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  #lightbox-img {
+    max-width: 90vw;
+    max-height: 85vh;
+  }
+  #lightbox-img {
+    display: block;
+    max-width: 90vw;
+    max-height: calc(90vh - 60px);
+    width: auto;
+    height: auto;
+  }
+  .lightbox-caption {
+    margin-top: 1rem;
+    color: #f3f3f3;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    text-align: center;
+    max-width: 90vw;
+    padding: 0 1rem;
+  }
+  .lightbox-controls {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+  }
+  .lightbox-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    line-height: 1;
+    z-index: 10;
+  }
+  .lightbox-controls {
+    position: absolute;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+    pointer-events: none;
+  }
+  .lightbox-prev,
+  .lightbox-next {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 3rem;
+    cursor: pointer;
+    padding: 1rem;
+    line-height: 1;
+    pointer-events: auto;
+  }
+  .lightbox-close:hover,
+  .lightbox-prev:hover,
+  .lightbox-next:hover {
+    color: #a3a3a3;
+  }
+</style>

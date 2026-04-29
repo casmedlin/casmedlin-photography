@@ -1,0 +1,57 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const photos = [
+  { src: '/landscapes/2023-08-12_17-10-21_419.webp', alt: 'Landscape photo' },
+  { src: '/landscapes/2023-08-12_17-21-57_418.webp', alt: 'Landscape photo' },
+  { src: '/landscapes/2023-08-12_18-18-25_343.webp', alt: 'Landscape photo' },
+  { src: '/landscapes/2025-07-22_10-18-30_806.webp', alt: 'Landscape photo' },
+  { src: '/landscapes/2025-07-22_20-48-53_638 (2025-12-13T08_51_55.998).webp', alt: 'Landscape photo' },
+  { src: '/landscapes/2025-07-23_21-02-21_091 (2026-01-10T20_14_32.207).webp', alt: 'Landscape photo' },
+  { src: '/landscapes/2025-09-11_19-39-21_733.webp', alt: 'Landscape photo' },
+  { src: '/landscapes/23-08-13 10-50-37 0722.webp', alt: 'Landscape photo' },
+  { src: '/landscapes/C0A118B3-8543-455A-8688-D4D056F13704DSC07868.webp', alt: 'Landscape photo' },
+  { src: '/landscapes/D5D8D35C-E227-46DA-9653-16C6219CCA3FDSC01500b Large.webp', alt: 'Landscape photo' },
+  { src: '/landscapes/DSC00278.webp', alt: 'Landscape photo' },
+  { src: '/landscapes/DSC00323.webp', alt: 'Landscape photo' },
+  { src: '/landscapes/DSC00653.webp', alt: 'Landscape photo' },
+  { src: '/landscapes/DSC06626.webp', alt: 'Landscape photo' },
+  { src: '/landscapes/DSC03284.webp', alt: 'Landscape photo' },
+  { src: '/landscapes/DSC03332.webp', alt: 'Landscape photo' },
+  { src: '/landscapes/DSC03490.webp', alt: 'Landscape photo' },
+  { src: '/landscapes/DSC04725 Large.webp', alt: 'Landscape photo' },
+  { src: '/landscapes/DSC04976.webp', alt: 'Landscape photo' },
+  { src: '/landscapes/DSC05112.webp', alt: 'Landscape photo' },
+  { src: '/landscapes/DSC05807 2.webp', alt: 'Landscape photo' },
+  { src: '/landscapes/DSC05995.webp', alt: 'Landscape photo' },
+  { src: '/landscapes/DSC06507.webp', alt: 'Landscape photo' },
+  { src: '/landscapes/DSC08025.webp', alt: 'Landscape photo' },
+  { src: '/landscapes/DSC08176.webp', alt: 'Landscape photo' },
+  { src: '/landscapes/DSC09558.webp', alt: 'Landscape photo' },
+  { src: '/landscapes/hCydvjybRh-HUghO949Ufw.webp', alt: 'Landscape photo' },
+];
+---
+
+<Layout title="Landscape Photography" description="Explore stunning landscape photography by Cas Medlin featuring mountains, forests, waterfalls, and scenic vistas across North Carolina and beyond.">
+  <div class="gallery">
+    {photos.map((photo) => (
+      <a href={photo.src} class="gallery-item">
+        <img src={photo.src} alt={photo.alt} loading="lazy" />
+      </a>
+    ))}
+  </div>
+</Layout>
+
+<style>
+  .gallery {
+    max-width: 1800px;
+    margin: 0 auto;
+    columns: 2;
+    column-gap: 0.5rem;
+  }
+  @media (min-width: 768px) { .gallery { columns: 3; } }
+  @media (min-width: 1024px) { .gallery { columns: 4; } }
+  .gallery-item { display: block; break-inside: avoid; margin-bottom: 0.5rem; }
+  .gallery-item img { width: 100%; height: auto; display: block; transition: transform 0.5s; }
+  .gallery-item:hover img { transform: scale(1.02); }
+</style>

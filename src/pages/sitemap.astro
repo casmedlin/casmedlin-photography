@@ -1,0 +1,77 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const pages = [
+  { url: '/', label: 'Home', desc: 'Featured photography gallery' },
+  { url: '/landscapes', label: 'Landscape Photography', desc: 'Mountains, forests, waterfalls, and scenic vistas' },
+  { url: '/wildlife', label: 'Wildlife Photography', desc: 'Animals in their natural habitats' },
+  { url: '/portraits', label: 'Portrait Photography', desc: 'Family, headshots, and creative portraits' },
+  { url: '/events', label: 'Event Photography', desc: 'Weddings, parties, and corporate events' },
+  { url: '/pets', label: 'Pet Photography', desc: 'Dog, cat, and pet portrait sessions' },
+  { url: '/astrophotography', label: 'Astrophotography', desc: 'Night sky, Milky Way, and celestial events' },
+  { url: '/about', label: 'About', desc: 'Meet Cas Medlin - photographer and graphic designer' },
+  { url: '/privacy-policy', label: 'Privacy Policy', desc: 'How we handle your data' },
+];
+---
+<Layout title="Sitemap" description="Sitemap for Cas Medlin Photography - a complete list of all pages on this website.">
+  <div class="content">
+    <h1>Sitemap</h1>
+    <p class="intro">A complete list of all pages on this website.</p>
+    <ul class="sitemap-list">
+      {pages.map((page) => (
+        <li>
+          <a href={page.url}>{page.label}</a>
+          <span>{page.desc}</span>
+        </li>
+      ))}
+      <li>
+        <a href="/sitemap-index.xml" target="_blank">XML Sitemap</a>
+        <span>Machine-readable sitemap for search engines</span>
+      </li>
+    </ul>
+  </div>
+</Layout>
+
+<style>
+  .content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+  h1 {
+    font-size: 2rem;
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+  }
+  .intro {
+    color: #a3a3a3;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  .sitemap-list {
+    list-style: none;
+    padding: 0;
+  }
+  .sitemap-list li {
+    padding: 1rem 0;
+    border-bottom: 1px solid #2a2a2a;
+  }
+  .sitemap-list li:first-child {
+    border-top: 1px solid #2a2a2a;
+  }
+  .sitemap-list a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.125rem;
+    margin-bottom: 0.25rem;
+    transition: color 0.2s;
+  }
+  .sitemap-list a:hover {
+    color: #a3a3a3;
+  }
+  .sitemap-list span {
+    color: #666;
+    font-size: 0.875rem;
+  }
+</style>

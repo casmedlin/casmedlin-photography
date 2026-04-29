@@ -1,0 +1,94 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Privacy Policy" description="Privacy policy for Cas Medlin Photography website. Information about cookies, analytics, and data collection.">
+  <div class="content">
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: {new Date().toLocaleDateString('en-US', {year: 'numeric', month: 'long', day: 'numeric'})}</p>
+
+    <section>
+      <h2>Information Collection</h2>
+      <p>This website does not collect personal information unless you voluntarily provide it by contacting me via email at <a href="mailto:me@casmedlin.com">me@casmedlin.com</a>.</p>
+    </section>
+
+    <section>
+      <h2>Google Analytics</h2>
+      <p>This website uses Google Analytics to understand how visitors engage with the site. Google Analytics uses cookies to collect information such as:</p>
+      <ul>
+        <li>Pages you visit</li>
+        <li>Time spent on each page</li>
+        <li>How you arrived at the site</li>
+        <li>Your general location (city/country level)</li>
+        <li>Device and browser type</li>
+      </ul>
+      <p>This data is anonymized and cannot be used to identify you personally. You can opt out of Google Analytics by installing the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank">Google Analytics Opt-out Browser Add-on</a>.</p>
+    </section>
+
+    <section>
+      <h2>Cookies</h2>
+      <p>This site uses minimal cookies:</p>
+      <ul>
+        <li><strong>Google Analytics cookies</strong> (_ga, _gid) - used to distinguish users and sessions</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Images</h2>
+      <p>All photographs on this site are copyright Cas Medlin. Images are not collected or processed for any purpose other than displaying them on this website.</p>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <p>If you have questions about this privacy policy, please contact me at <a href="mailto:me@casmedlin.com">me@casmedlin.com</a>.</p>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+  h1 {
+    font-size: 2rem;
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+  }
+  .updated {
+    color: #a3a3a3;
+    font-size: 0.875rem;
+    margin-bottom: 2rem;
+  }
+  section {
+    margin-bottom: 2rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+  }
+  p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #a3a3a3;
+    margin-bottom: 1rem;
+  }
+  ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+    color: #a3a3a3;
+    line-height: 1.6;
+  }
+  li {
+    margin-bottom: 0.5rem;
+  }
+  a {
+    color: #fff;
+    text-decoration: underline;
+  }
+  a:hover {
+    color: #a3a3a3;
+  }
+</style>

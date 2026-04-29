@@ -1,0 +1,108 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const photos = [
+  { src: '/wildlife/0F02335F-2265-4BEA-B388-0D6291B8E02E2025-07-24_15-20-27_118.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/2023-08-09_19-21-47_497.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/2023-08-15_15-18-38_847.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/2025-07-20_22-21-42_808.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/2025-07-21_00-41-13_804.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/2025-07-21_20-22-05_838.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/2025-07-21_21-35-31_496.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/2025-07-21_21-49-26_961.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/2025-07-22_00-13-32_078.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/2025-09-11_19-48-13_491.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/2025-09-12_10-19-42_002.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/23-08-11 17-31-06 8906.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/23-08-11 17-32-56 8960.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/23-08-15 15-23-02 1229.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/45CEEFEA-5CE0-4B80-9E8E-E6671D36AA8C.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/51674A29-BD44-4231-82FB-833176A5B5322025-07-24_16-52-11_680 (2025-12-07T10_05_36.324).webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/5A0ADCC3-EC67-4C3E-9B9A-84DBA06D5FA32025-07-21_21-26-02_636 (2025-12-13T09_02_49.793).webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/712A0C40-E9CF-4784-9CEC-250893B8516EDSC08955.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/73065081-51C6-40CA-8551-8445DE16A06DDSC08912.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/7AEA06A4-31D9-4EF7-9250-BC90DA14FB50DSC07175.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/CAS_0418.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/CAS_0448.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/CAS_0495.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/CAS_0507.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/D78A08A4-6AA7-467D-9777-DA8CC5BF12BFDSC06664.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/DSC01170(1).webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/DSC01224.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/DSC01225.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/DSC01229.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/DSC01277.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/DSC01435.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/DSC01440.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/DSC01964.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/DSC02139.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/DSC02320.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/DSC02328.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/DSC02427.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/DSC02509.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/DSC02824.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/DSC03101.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/DSC03417.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/DSC04140.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/DSC04431.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/DSC04803.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/DSC05011.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/DSC05427.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/DSC05434.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/DSC05897.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/DSC06062.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/DSC07517.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/DSC08172.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/DSC08201.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/DSC08319.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/DSC08362.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/DSC08388.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/DSC08629.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/DSC08636.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/DSC08682.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/DSC0E2177.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/E42053A0-FAE0-4E0A-9DF3-0484CD9340AC.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/F193C2C9-02D6-45D8-ACB8-600F5EED75CF2025-07-24_12-38-13_132.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/IMG_0316.webp', alt: 'Wildlife photo' },
+  { src: '/wildlife/owl.webp', alt: 'Wildlife photo' },
+];
+---
+
+<Layout title="Wildlife Photography" description="Captivating wildlife photography showcasing animals in their natural habitats. Browse photos of birds, mammals, and nature scenes by Cas Medlin.">
+  <div class="gallery">
+    {photos.map((photo) => (
+      <a href={photo.src} class="gallery-item">
+        <img src={photo.src} alt={photo.alt} loading="lazy" />
+      </a>
+    ))}
+  </div>
+</Layout>
+
+<style>
+  .gallery {
+    max-width: 1800px;
+    margin: 0 auto;
+    columns: 2;
+    column-gap: 0.5rem;
+  }
+  @media (min-width: 768px) {
+    .gallery {
+      columns: 3;
+    }
+  }
+  @media (min-width: 1024px) {
+    .gallery {
+      columns: 4;
+    }
+  }
+  .gallery-item {
+    display: block;
+    break-inside: avoid;
+    margin-bottom: 0.5rem;
+  }
+  .gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s;
+  }

@@ -1,0 +1,62 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const photos = [
+  { src: 'CAS_0418.webp', alt: 'Barred Owl at Golden Hour, Shot in Iredell County, NC by Cas Medlin', caption: 'Barred Owl perched on a tree branch during golden hour, captured in Iredell County, NC by Cas Medlin' },
+  { src: '2025-07-23_21-02-21_091 (2026-01-10T20_14_32.207).webp',alt: 'Lupine on a rolling hills with snow covered peaks, captured in Kenai Fjords National Park Alaska by Cas Medlin', caption: 'Lupine on a rolling hills with snow covered peaks in the background, captured in Kenai Fjords National Park Alaska by Cas Medlin' },
+  { src: 'DSC01007(1) 2.webp', alt: 'Joe Smallbone one of the For King and Country members photographed while performing, by Cas Medlin', caption: 'Joe Smallbone one of the For King and Country members photographed while performing, by Cas Medlin' },
+  { src: '294518D8-40EC-4C93-B49D-5A4BF14A0BD5DSC00146b.webp',  alt: 'Northern Lights (aurora borealis), taken in Iredell County, NC by Cas Medlin', caption: 'Northern Lights (aurora borealis), taken in Iredell County, NC by Cas Medlin' },
+  { src: 'DSC04992.webp', alt: 'Bubby the Cocker Spaniel Chihuahua mix, captured in Iredell County, NC by Cas Medlin', caption: 'Bubby the Cocker Spaniel Chihuahua mix, captured in Iredell County, NC by Cas Medlin'},
+  { src: 'DSC04363.webp',  },
+  { src: 'DSC03417.webp', alt: 'Moose in a field of Fireweed, taken in Denail State Park Alaska by Cas Medlin', caption: 'Moose in a field of Fireweed, taken in Denail State Park Alaska by Cas Medlin'},
+  { src: 'DSC01765.webp', alt: 'Worship at a Christian Concert, by Cas Medlin', caption: 'Worship at a Christian Concert, by Cas Medlin' },
+  { src: '2025-09-11_19-48-13_491.webp', alt: 'Young Cow coming toward me with a mother cow behind it with Blue ridge behind it, photographed in Grayson Highlands State Park by Cas Medlin', caption: 'Young Cow coming toward me with a mother cow behind it with Blue ridge behind it, photographed in Grayson Highlands State Park by Cas Medlin'  },
+  { src: '2025-05-22_03-30-35_454.webp', alt: 'Milky way with the Cape Lookout lighthouse below it, taken on Cape Lookout Island, NC by Cas Medlin', caption: 'Milky way with the Cape Lookout lighthouse below it, taken on Cape Lookout Island, NC by Cas Medlin' },
+  { src: 'DSC01277.webp', alt: 'Eastern coyote, captured in Great Smokey Mountain National Park by Cas Medlin', caption: 'Eastern coyote, captured in Great Smokey Mountain National Park by Cas Medlin' },
+  { src: 'hCydvjybRh-HUghO949Ufw.webp', alt: 'Interior of a Bed and Breakfast In Maine, by Cas Medlin', caption: 'Interior of a Bed and Breakfast In Maine, by Cas Medlin' },
+];
+---
+
+<Layout title="Home" description="Cas Medlin Photography - Freelance photographer in Iredell County, NC specializing in landscapes, wildlife, portraits, events, pets, and astrophotography. View the featured gallery.">
+  <div class="gallery">
+    {photos.map((photo) => (
+      <a href={photo.src} class="gallery-item" data-caption={photo.caption}>
+        <img src={photo.src} alt={photo.alt} loading="lazy" />
+      </a>
+    ))}
+  </div>
+</Layout>
+
+<style>
+  .gallery {
+    max-width: 1800px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+  @media (min-width: 768px) {
+    .gallery {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media (min-width: 1024px) {
+    .gallery {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  .gallery-item {
+    display: block;
+    overflow: hidden;
+  }
+  .gallery-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s;
+  }
+  .gallery-item:hover img {
+    transform: scale(1.05);
+  }
+</style>
