@@ -19,9 +19,9 @@ const photos = [
 
 <Layout title="Home" description="Cas Medlin Photography - Freelance photographer in Iredell County, NC specializing in landscapes, wildlife, portraits, events, pets, and astrophotography. View the featured gallery.">
   <div class="gallery">
-    {photos.map((photo) => (
+    {photos.map((photo, i) => (
       <a href={photo.src} class="gallery-item" data-caption={photo.caption}>
-        <img src={photo.src} alt={photo.alt} loading="lazy" />
+        <img src={photo.src} alt={photo.alt} loading={i < 2 ? "eager" : "lazy"} fetchpriority={i < 2 ? "high" : "auto"} />
       </a>
     ))}
   </div>

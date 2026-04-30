@@ -28,9 +28,9 @@ const photos = [
 
 <Layout title="Landscape Photography" description="Explore stunning landscape photography by Cas Medlin featuring mountains, forests, waterfalls, and scenic vistas across North Carolina and beyond.">
   <div class="gallery">
-    {photos.map((photo) => (
+    {photos.map((photo, i) => (
       <a href={photo.src} class="gallery-item">
-        <img src={photo.src} alt={photo.alt} loading="lazy" />
+        <img src={photo.src} alt={photo.alt} loading={i < 2 ? "eager" : "lazy"} fetchpriority={i < 2 ? "high" : "auto"} />
       </a>
     ))}
   </div>

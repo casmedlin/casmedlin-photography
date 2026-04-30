@@ -34,7 +34,7 @@ let photos = [
   <div class="gallery">
     {photos.map((photo, i) => (
       <a href={photo.src} class={`gallery-item ${photo.ratio > 1.2 ? 'wide' : ''} ${i < 2 ? 'featured' : ''}`}>
-        <img src={photo.src} alt={photo.alt} loading="lazy" />
+        <img src={photo.src} alt={photo.alt} loading={i < 2 ? "eager" : "lazy"} fetchpriority={i < 2 ? "high" : "auto"} />
       </a>
     ))}
   </div>

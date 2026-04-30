@@ -76,13 +76,39 @@ const navLinks = [
       knowsAbout: ['Landscape Photography', 'Wildlife Photography', 'Portrait Photography', 'Event Photography', 'Pet Photography', 'Astrophotography']
     })} />
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LHBPEXY32" is:inline></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-5LHBPEXY32');
+    <!-- Google tag (gtag.js) - Deferred for performance -->
+    <script type="text/javascript" client:load>
+      (function() {
+        var loadGTM = function() {
+          if (window.gtag) return;
+          var script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-5LHBPEXY32';
+          document.head.appendChild(script);
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-5LHBPEXY32');
+          window.gtag = gtag;
+        };
+
+        var interactionEvents = ['scroll', 'mousemove', 'touchstart'];
+        var loadOnInteraction = function() {
+          loadGTM();
+          interactionEvents.forEach(function(evt) {
+            document.removeEventListener(evt, loadOnInteraction);
+          });
+        };
+
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          loadGTM();
+        } else {
+          interactionEvents.forEach(function(evt) {
+            document.addEventListener(evt, loadOnInteraction, { once: true });
+          });
+          setTimeout(loadGTM, 5000);
+        }
+      })();
     </script>
   </head>
   <body>
@@ -371,7 +397,7 @@ const navLinks = [
   }
   .footer p {
     font-size: 0.875rem;
-    color: #737373;
+    color: #9e9e9e;
   }
   .contact-info a {
     color: #a3a3a3;
@@ -387,12 +413,12 @@ const navLinks = [
      gap: 1.5rem;
      margin-bottom: 0.5rem;
    }
-   .footer-links a {
-     color: #666;
-     text-decoration: none;
-     font-size: 0.875rem;
-     transition: color 0.2s;
-   }
+  .footer-links a {
+    color: #9e9e9e;
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color 0.2s;
+  }
    .footer-links a:hover {
      color: #a3a3a3;
    }

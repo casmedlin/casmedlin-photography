@@ -12,9 +12,9 @@ const photos = [
 
 <Layout title="Architecture Photography" description="Architecture photography by Cas Medlin showcasing structures, geometry, and urban form from across the region.">
   <div class="gallery">
-    {photos.map((photo) => (
+    {photos.map((photo, i) => (
       <a href={photo.src} class="gallery-item">
-        <img src={photo.src} alt={photo.alt} loading="lazy" />
+        <img src={photo.src} alt={photo.alt} loading={i < 2 ? "eager" : "lazy"} fetchpriority={i < 2 ? "high" : "auto"} />
       </a>
     ))}
   </div>
