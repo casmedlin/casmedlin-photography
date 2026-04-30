@@ -41,3 +41,10 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+---
+
+## 📜 License & Copyright
+
+- **Code**: This project's source code is free to use, modify, and distribute.
+- **Photographs**: All images and photography included in this repository are **© All Rights Reserved**. They may not be used, reproduced, or distributed without explicit permission.
