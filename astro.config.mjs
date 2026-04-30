@@ -14,8 +14,17 @@ export default defineConfig({
     build: {
       minify: 'terser',
       terserOptions: {
-        compress: true,
+        compress: {
+          drop_console: true,
+          drop_debugger: true,
+        },
       },
     },
   },
+  image: {
+    service: {
+      entrypoint: 'astro/assets/services/sharp',
+    },
+  },
+  compressHTML: true,
 });

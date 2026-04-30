@@ -1,5 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import dimensions from '../data/image-dimensions.json';
+
+function getDims(src) {
+  const cleanSrc = src.startsWith('/') ? src.slice(1) : src;
+  const parts = cleanSrc.split('/');
+  const file = parts.pop();
+  const folder = parts[parts.length - 1] || 'root';
+  return dimensions[folder]?.[file] || { width: 800, height: 600 };
+}
 
 const photos = [
   { src: '/wildlife/0F02335F-2265-4BEA-B388-0D6291B8E02E2025-07-24_15-20-27_118.webp', alt: 'Wildlife photo' },
@@ -69,11 +78,14 @@ const photos = [
 
 <Layout title="Wildlife Photography" description="Captivating wildlife photography showcasing animals in their natural habitats. Browse photos of birds, mammals, and nature scenes by Cas Medlin.">
   <div class="gallery">
-    {photos.map((photo, i) => (
-      <a href={photo.src} class="gallery-item">
-        <img src={photo.src} alt={photo.alt} loading={i < 2 ? "eager" : "lazy"} fetchpriority={i < 2 ? "high" : "auto"} />
-      </a>
-    ))}
+    {photos.map((photo, i) => {
+      const dims = getDims(photo.src);
+      return (
+        <a href={photo.src} class="gallery-item">
+          <img src={photo.src} alt={photo.alt} width={dims.width} height={dims.height} loading={i < 2 ? "eager" : "lazy"} fetchpriority={i < 2 ? "high" : "auto"} />
+        </a>
+      );
+    })}
   </div>
 </Layout>
 

@@ -1,0 +1,16 @@
+{
+  "name": "Cas Medlin Photography",
+  "short_name": "Cas Medlin",
+  "description": "Photography portfolio by Cas Medlin",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#151515",
+  "theme_color": "#151515",
+  "icons": [
+    {
+      "src": "/favicon.webp",
+      "sizes": "32x32",
+      "type": "image/webp"
+    }
+  ]
+}

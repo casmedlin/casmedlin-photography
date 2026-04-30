@@ -76,7 +76,15 @@ const navLinks = [
       knowsAbout: ['Landscape Photography', 'Wildlife Photography', 'Portrait Photography', 'Event Photography', 'Pet Photography', 'Astrophotography']
     })} />
 
-    <!-- Google tag (gtag.js) - Deferred for performance -->
+     <!-- Resource Hints for performance -->
+     <link rel="preconnect" href="https://www.googletagmanager.com" />
+     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+     <link rel="preload" href="/main.js" as="script" />
+     
+     <!-- Core Web Vitals monitoring -->
+     <script is:inline src="/vitals.js" defer></script>
+     
+     <!-- Google tag (gtag.js) - Deferred for performance -->
     <script type="text/javascript" client:load>
       (function() {
         var loadGTM = function() {
@@ -110,12 +118,24 @@ const navLinks = [
         }
       })();
     </script>
+    
+     <!-- Main script with deferred loading -->
+     <script is:inline src="/main.js" defer></script>
+     
+     <!-- Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(() => {});
+        });
+      }
+    </script>
   </head>
   <body>
     <nav class="nav">
       <div class="nav-inner">
         <a href="/" class="logo">
-          <img src="/favicon.webp" alt="Cas Medlin Photography" class="logo-img" />
+          <img src="/favicon.webp" alt="Cas Medlin Photography" class="logo-img" width="32" height="32" />
           <span class="logo-text">{siteName}</span>
         </a>
         <button class="menu-toggle" aria-label="Toggle menu">
@@ -142,13 +162,13 @@ const navLinks = [
           <a href="mailto:info@casmedlin.com">info@casmedlin.com</a>
         </div>
         <div class="social-links">
-          <a href="https://instagram.com/casmedlin" target="_blank" aria-label="Instagram">
+          <a href="https://instagram.com/casmedlin" target="_blank" aria-label="Instagram" rel="noopener">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
           </a>
-          <a href="https://facebook.com/casmedlin1" target="_blank" aria-label="Facebook">
+          <a href="https://facebook.com/casmedlin1" target="_blank" aria-label="Facebook" rel="noopener">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
           </a>
-          <a href="https://youtube.com/@casmedlin" target="_blank" aria-label="YouTube">
+          <a href="https://youtube.com/@casmedlin" target="_blank" aria-label="YouTube" rel="noopener">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
           </a>
         </div>
@@ -160,101 +180,15 @@ const navLinks = [
       </div>
     </footer>
 
-    <div id="lightbox" class="lightbox" onclick="if(event.target === this) closeLightbox()">
-      <button class="lightbox-close" id="lightbox-close-btn">×</button>
-      <div class="lightbox-controls">
-        <button class="lightbox-prev" id="lightbox-prev-btn">‹</button>
-        <button class="lightbox-next" id="lightbox-next-btn">›</button>
+      <div id="lightbox" class="lightbox">
+        <button class="lightbox-close" id="lightbox-close-btn">×</button>
+        <div class="lightbox-controls">
+          <button class="lightbox-prev" id="lightbox-prev-btn">‹</button>
+          <button class="lightbox-next" id="lightbox-next-btn">›</button>
+        </div>
+        <img id="lightbox-img" src="" alt="" />
+        <p id="lightbox-caption" class="lightbox-caption"></p>
       </div>
-      <img id="lightbox-img" src="" alt="" />
-      <p id="lightbox-caption" class="lightbox-caption"></p>
-    </div>
-
-    <script type="module">
-      const images = /** @type {{src: string, caption: string}[]} */ ([]);
-      let currentIndex = 0;
-      
-      function initGallery() {
-        document.querySelectorAll('.gallery-item').forEach((item, index) => {
-          const anchor = /** @type {HTMLAnchorElement} */ (item);
-          const img = /** @type {HTMLImageElement | null} */ (anchor.querySelector('img'));
-          if (img) {
-            images.push({
-              src: img.src,
-              caption: anchor.dataset.caption?.trim() || img.alt || ''
-            });
-            anchor.addEventListener('click', (e) => {
-              e.preventDefault();
-              openLightbox(index);
-            });
-          }
-        });
-
-        document.getElementById('lightbox-close-btn')?.addEventListener('click', closeLightbox);
-        document.getElementById('lightbox-prev-btn')?.addEventListener('click', () => changeImage(-1));
-        document.getElementById('lightbox-next-btn')?.addEventListener('click', () => changeImage(1));
-        document.querySelector('.menu-toggle')?.addEventListener('click', toggleMenu);
-        document.querySelector('.nav-links')?.addEventListener('click', toggleMenu);
-      }
-
-      function openLightbox(index) {
-        currentIndex = index;
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = /** @type {HTMLImageElement | null} */ (document.getElementById('lightbox-img'));
-        const lightboxCaption = document.getElementById('lightbox-caption');
-        if (lightbox && lightboxImg) {
-          lightboxImg.src = images[index]?.src || '';
-          lightboxImg.alt = images[index]?.caption || 'Lightbox image';
-          if (lightboxCaption) {
-            lightboxCaption.textContent = images[index]?.caption || '';
-            lightboxCaption.style.display = images[index]?.caption ? 'block' : 'none';
-          }
-          lightbox.classList.add('active');
-          document.body.style.overflow = 'hidden';
-        }
-      }
-
-      function closeLightbox() {
-        const lightbox = document.getElementById('lightbox');
-        if (lightbox) {
-          lightbox.classList.remove('active');
-          document.body.style.overflow = '';
-        }
-      }
-
-      function changeImage(direction) {
-        currentIndex += direction;
-        if (currentIndex < 0) currentIndex = images.length - 1;
-        if (currentIndex >= images.length) currentIndex = 0;
-        
-        const lightboxImg = /** @type {HTMLImageElement | null} */ (document.getElementById('lightbox-img'));
-        const lightboxCaption = document.getElementById('lightbox-caption');
-        if (lightboxImg && images[currentIndex]) {
-          lightboxImg.src = images[currentIndex].src;
-          lightboxImg.alt = images[currentIndex].caption || 'Lightbox image';
-          if (lightboxCaption) {
-            lightboxCaption.textContent = images[currentIndex].caption || '';
-            lightboxCaption.style.display = images[currentIndex].caption ? 'block' : 'none';
-          }
-        }
-      }
-
-      function toggleMenu() {
-        document.querySelector('.nav-links')?.classList.toggle('active');
-        document.querySelector('.menu-toggle')?.classList.toggle('active');
-      }
-
-      document.addEventListener('keydown', (e) => {
-        const lightbox = document.getElementById('lightbox');
-        if (lightbox && lightbox.classList.contains('active')) {
-          if (e.key === 'Escape') closeLightbox();
-          if (e.key === 'ArrowLeft') changeImage(-1);
-          if (e.key === 'ArrowRight') changeImage(1);
-        }
-      });
-
-      document.addEventListener('DOMContentLoaded', initGallery);
-    </script>
   </body>
 </html>
 

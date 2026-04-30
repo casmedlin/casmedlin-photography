@@ -1,0 +1,590 @@
+{
+  "landscapes": {
+    "2023-08-12_17-10-21_419.webp": {
+      "width": 1280,
+      "height": 1920
+    },
+    "2023-08-12_17-21-57_418.webp": {
+      "width": 1280,
+      "height": 1922
+    },
+    "2023-08-12_18-18-25_343.webp": {
+      "width": 1280,
+      "height": 1920
+    },
+    "2025-07-22_10-18-30_806.webp": {
+      "width": 1280,
+      "height": 1920
+    },
+    "2025-07-22_20-48-53_638 (2025-12-13T08_51_55.998).webp": {
+      "width": 1280,
+      "height": 854
+    },
+    "2025-09-11_19-39-21_733.webp": {
+      "width": 1280,
+      "height": 1920
+    },
+    "C0A118B3-8543-455A-8688-D4D056F13704DSC07868.webp": {
+      "width": 1280,
+      "height": 854
+    },
+    "D5D8D35C-E227-46DA-9653-16C6219CCA3FDSC01500b Large.webp": {
+      "width": 1280,
+      "height": 1921
+    },
+    "DSC00278.webp": {
+      "width": 1280,
+      "height": 854
+    },
+    "DSC00653.webp": {
+      "width": 1280,
+      "height": 1920
+    },
+    "DSC03284.webp": {
+      "width": 1280,
+      "height": 854
+    },
+    "DSC03490.webp": {
+      "width": 1280,
+      "height": 1549
+    },
+    "DSC04976.webp": {
+      "width": 1280,
+      "height": 854
+    },
+    "DSC05112.webp": {
+      "width": 1280,
+      "height": 854
+    },
+    "DSC05807 2.webp": {
+      "width": 1280,
+      "height": 854
+    },
+    "DSC05995.webp": {
+      "width": 1280,
+      "height": 660
+    },
+    "DSC06507.webp": {
+      "width": 1280,
+      "height": 1920
+    },
+    "DSC06626.webp": {
+      "width": 1280,
+      "height": 854
+    },
+    "DSC08025.webp": {
+      "width": 1280,
+      "height": 854
+    },
+    "DSC08176.webp": {
+      "width": 1280,
+      "height": 1921
+    },
+    "DSC09558.webp": {
+      "width": 1280,
+      "height": 1920
+    }
+  },
+  "wildlife": {
+    "0F02335F-2265-4BEA-B388-0D6291B8E02E2025-07-24_15-20-27_118.webp": {
+      "width": 1280,
+      "height": 887
+    },
+    "2023-08-09_19-21-47_497.webp": {
+      "width": 1280,
+      "height": 724
+    },
+    "2023-08-15_15-18-38_847.webp": {
+      "width": 1280,
+      "height": 678
+    },
+    "2025-07-20_22-21-42_808.webp": {
+      "width": 1280,
+      "height": 771
+    },
+    "2025-07-21_00-41-13_804.webp": {
+      "width": 1280,
+      "height": 854
+    },
+    "2025-07-21_20-22-05_838.webp": {
+      "width": 1280,
+      "height": 933
+    },
+    "2025-07-21_21-35-31_496.webp": {
+      "width": 1280,
+      "height": 688
+    },
+    "2025-07-21_21-49-26_961.webp": {
+      "width": 1280,
+      "height": 882
+    },
+    "2025-07-22_00-13-32_078.webp": {
+      "width": 1280,
+      "height": 806
+    },
+    "2025-09-11_19-48-13_491.webp": {
+      "width": 1280,
+      "height": 854
+    },
+    "2025-09-12_10-19-42_002.webp": {
+      "width": 1280,
+      "height": 854
+    },
+    "23-08-11 17-31-06 8906.webp": {
+      "width": 1280,
+      "height": 833
+    },
+    "23-08-11 17-32-56 8960.webp": {
+      "width": 1280,
+      "height": 761
+    },
+    "23-08-15 15-23-02 1229.webp": {
+      "width": 1280,
+      "height": 926
+    },
+    "45CEEFEA-5CE0-4B80-9E8E-E6671D36AA8C.webp": {
+      "width": 1280,
+      "height": 1354
+    },
+    "51674A29-BD44-4231-82FB-833176A5B5322025-07-24_16-52-11_680 (2025-12-07T10_05_36.324).webp": {
+      "width": 1280,
+      "height": 854
+    },
+    "5A0ADCC3-EC67-4C3E-9B9A-84DBA06D5FA32025-07-21_21-26-02_636 (2025-12-13T09_02_49.793).webp": {
+      "width": 1280,
+      "height": 795
+    },
+    "712A0C40-E9CF-4784-9CEC-250893B8516EDSC08955.webp": {
+      "width": 1280,
+      "height": 854
+    },
+    "73065081-51C6-40CA-8551-8445DE16A06DDSC08912.webp": {
+      "width": 1280,
+      "height": 1008
+    },
+    "7AEA06A4-31D9-4EF7-9250-BC90DA14FB50DSC07175.webp": {
+      "width": 1280,
+      "height": 854
+    },
+    "CAS_0448.webp": {
+      "width": 1280,
+      "height": 1089
+    },
+    "CAS_0495.webp": {
+      "width": 1280,
+      "height": 1302
+    },
+    "CAS_0507.webp": {
+      "width": 1280,
+      "height": 827
+    },
+    "D78A08A4-6AA7-467D-9777-DA8CC5BF12BFDSC06664.webp": {
+      "width": 1280,
+      "height": 885
+    },
+    "DSC01170(1).webp": {
+      "width": 1280,
+      "height": 854
+    },
+    "DSC01224.webp": {
+      "width": 1280,
+      "height": 609
+    },
+    "DSC01225.webp": {
+      "width": 1280,
+      "height": 854
+    },
+    "DSC01229.webp": {
+      "width": 1280,
+      "height": 789
+    },
+    "DSC01435.webp": {
+      "width": 1280,
+      "height": 754
+    },
+    "DSC01440.webp": {
+      "width": 1280,
+      "height": 855
+    },
+    "DSC01964.webp": {
+      "width": 1280,
+      "height": 854
+    },
+    "DSC02139.webp": {
+      "width": 1280,
+      "height": 854
+    },
+    "DSC02320.webp": {
+      "width": 1280,
+      "height": 795
+    },
+    "DSC02328.webp": {
+      "width": 1280,
+      "height": 854
+    },
+    "DSC02427.webp": {
+      "width": 1280,
+      "height": 860
+    },
+    "DSC02509.webp": {
+      "width": 1280,
+      "height": 1227
+    },
+    "DSC02824.webp": {
+      "width": 1280,
+      "height": 796
+    },
+    "DSC03101.webp": {
+      "width": 1280,
+      "height": 1155
+    },
+    "DSC03417.webp": {
+      "width": 1280,
+      "height": 830
+    },
+    "DSC04431.webp": {
+      "width": 1280,
+      "height": 854
+    },
+    "DSC04803.webp": {
+      "width": 1280,
+      "height": 659
+    },
+    "DSC05011.webp": {
+      "width": 1280,
+      "height": 854
+    },
+    "DSC05427.webp": {
+      "width": 1280,
+      "height": 1468
+    },
+    "DSC05434.webp": {
+      "width": 1280,
+      "height": 1333
+    },
+    "DSC05897.webp": {
+      "width": 1280,
+      "height": 854
+    },
+    "DSC06062.webp": {
+      "width": 1280,
+      "height": 854
+    },
+    "DSC07517.webp": {
+      "width": 1280,
+      "height": 810
+    },
+    "DSC08172.webp": {
+      "width": 1280,
+      "height": 904
+    },
+    "DSC08201.webp": {
+      "width": 1280,
+      "height": 854
+    },
+    "DSC08319.webp": {
+      "width": 1280,
+      "height": 854
+    },
+    "DSC08362.webp": {
+      "width": 1280,
+      "height": 673
+    },
+    "DSC08388.webp": {
+      "width": 1280,
+      "height": 680
+    },
+    "DSC08629.webp": {
+      "width": 1280,
+      "height": 854
+    },
+    "DSC08636.webp": {
+      "width": 1280,
+      "height": 854
+    },
+    "DSC08682.webp": {
+      "width": 1280,
+      "height": 612
+    },
+    "DSC0E2177.webp": {
+      "width": 1280,
+      "height": 1437
+    },
+    "E42053A0-FAE0-4E0A-9DF3-0484CD9340AC.webp": {
+      "width": 1280,
+      "height": 1921
+    },
+    "F193C2C9-02D6-45D8-ACB8-600F5EED75CF2025-07-24_12-38-13_132.webp": {
+      "width": 1280,
+      "height": 728
+    },
+    "IMG_0316.webp": {
+      "width": 1280,
+      "height": 855
+    },
+    "owl.webp": {
+      "width": 1280,
+      "height": 759
+    }
+  },
+  "portraits": {
+    "2025-07-20_13-51-57_305 (2025-12-13T09_10_51.635).webp": {
+      "width": 934,
+      "height": 1401
+    },
+    "2025-07-21_00-41-47_938 (2025-12-13T09_07_35.015).webp": {
+      "width": 844,
+      "height": 1266
+    },
+    "2025-07-23_21-25-17_620.webp": {
+      "width": 1280,
+      "height": 854
+    },
+    "2025-07-23_22-20-00_081.webp": {
+      "width": 1280,
+      "height": 1920
+    },
+    "2026-04-25_15-38-23_300.webp": {
+      "width": 2336,
+      "height": 3504
+    },
+    "2026-04-25_15-38-25_536.webp": {
+      "width": 1617,
+      "height": 1079
+    },
+    "DSC01354b.webp": {
+      "width": 1280,
+      "height": 1920
+    },
+    "DSC04264.webp": {
+      "width": 1280,
+      "height": 854
+    },
+    "DSC04302.webp": {
+      "width": 1280,
+      "height": 1697
+    },
+    "DSC04666.webp": {
+      "width": 1280,
+      "height": 1414
+    },
+    "DSC05371 2.webp": {
+      "width": 1280,
+      "height": 1920
+    },
+    "DSC06596.webp": {
+      "width": 3153,
+      "height": 2102
+    },
+    "DSC07582.webp": {
+      "width": 3581,
+      "height": 2208
+    },
+    "DSC07624.webp": {
+      "width": 3060,
+      "height": 3678
+    }
+  },
+  "events": {
+    "DSC00394.webp": {
+      "width": 1280,
+      "height": 1021
+    },
+    "DSC00416.webp": {
+      "width": 1280,
+      "height": 854
+    },
+    "DSC00882.webp": {
+      "width": 1280,
+      "height": 1404
+    },
+    "DSC00944.webp": {
+      "width": 1280,
+      "height": 752
+    },
+    "DSC00970.webp": {
+      "width": 1280,
+      "height": 920
+    },
+    "DSC01001(1).webp": {
+      "width": 1049,
+      "height": 826
+    },
+    "DSC01007(1) 2.webp": {
+      "width": 2534,
+      "height": 1771
+    },
+    "DSC01765.webp": {
+      "width": 1280,
+      "height": 854
+    }
+  },
+  "pets": {
+    "20200417_150802.webp": {
+      "width": 4344,
+      "height": 2896
+    },
+    "2023-12-04_16-52-14_336 (2023-12-17T13_14_31.240).webp": {
+      "width": 2336,
+      "height": 3504
+    },
+    "2023-12-04_17-13-23_621.webp": {
+      "width": 4204,
+      "height": 6307
+    },
+    "CAS_0015.webp": {
+      "width": 2400,
+      "height": 1600
+    },
+    "DSC01004.webp": {
+      "width": 2336,
+      "height": 3504
+    },
+    "DSC02058.webp": {
+      "width": 2336,
+      "height": 3504
+    },
+    "DSC02122 2.webp": {
+      "width": 3460,
+      "height": 3794
+    },
+    "DSC02123.webp": {
+      "width": 2336,
+      "height": 3504
+    },
+    "DSC03490.webp": {
+      "width": 3379,
+      "height": 3480
+    },
+    "DSC04153.webp": {
+      "width": 1280,
+      "height": 1920
+    },
+    "DSC04992.webp": {
+      "width": 1280,
+      "height": 854
+    },
+    "DSC04995.webp": {
+      "width": 2281,
+      "height": 1594
+    },
+    "DSC09913.webp": {
+      "width": 4672,
+      "height": 7008
+    },
+    "DSC09920.webp": {
+      "width": 1280,
+      "height": 1212
+    }
+  },
+  "astrophotography": {
+    "02D171D5-53B9-4A93-933B-8C2A38049169.webp": {
+      "width": 1312,
+      "height": 874
+    },
+    "2024-08-31_21-26-16_900.webp": {
+      "width": 934,
+      "height": 1401
+    },
+    "2025-05-22_03-30-35_454.webp": {
+      "width": 1280,
+      "height": 854
+    },
+    "23-08-14 23-09-40 0690.webp": {
+      "width": 1280,
+      "height": 1920
+    },
+    "294518D8-40EC-4C93-B49D-5A4BF14A0BD5DSC00146b.webp": {
+      "width": 1280,
+      "height": 854
+    },
+    "2A5F4959-4464-4343-B76B-69D393E8F9D12024-08-10_21-26-04_924.webp": {
+      "width": 1280,
+      "height": 1920
+    },
+    "DSC03667.webp": {
+      "width": 1280,
+      "height": 1920
+    },
+    "StarStaX_DSC03647b-DSC03706_lighten.webp": {
+      "width": 934,
+      "height": 1401
+    }
+  },
+  "architecture": {
+    "23-08-13 10-50-37 0722.webp": {
+      "width": 1280,
+      "height": 1982
+    },
+    "DSC00323.webp": {
+      "width": 1280,
+      "height": 1647
+    },
+    "DSC02456.webp": {
+      "width": 1136,
+      "height": 757
+    },
+    "DSC03332.webp": {
+      "width": 1280,
+      "height": 482
+    },
+    "DSC04725 Large.webp": {
+      "width": 1280,
+      "height": 852
+    },
+    "DSC08754 3.webp": {
+      "width": 1326,
+      "height": 884
+    },
+    "July 22 CAS_0984(1).webp": {
+      "width": 800,
+      "height": 1200
+    }
+  },
+  "root": {
+    "2025-05-22_03-30-35_454.webp": {
+      "width": 1280,
+      "height": 854
+    },
+    "2025-07-23_21-02-21_091.webp": {
+      "width": 1280,
+      "height": 854
+    },
+    "2025-09-11_19-48-13_491.webp": {
+      "width": 1280,
+      "height": 854
+    },
+    "294518D8-40EC-4C93-B49D-5A4BF14A0BD5DSC00146b.webp": {
+      "width": 1280,
+      "height": 854
+    },
+    "CAS_0418.webp": {
+      "width": 1280,
+      "height": 854
+    },
+    "DSC01277.webp": {
+      "width": 1280,
+      "height": 854
+    },
+    "DSC03417.webp": {
+      "width": 1280,
+      "height": 830
+    },
+    "DSC04992.webp": {
+      "width": 1280,
+      "height": 854
+    },
+    "DSC06596.webp": {
+      "width": 1370,
+      "height": 1213
+    },
+    "favicon.webp": {
+      "width": 137,
+      "height": 121
+    },
+    "hCydvjybRh-HUghO949Ufw.webp": {
+      "width": 1240,
+      "height": 844
+    }
+  }
+}

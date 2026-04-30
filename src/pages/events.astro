@@ -1,33 +1,35 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import dimensions from '../data/image-dimensions.json';
+
+function getDims(src) {
+  const cleanSrc = src.startsWith('/') ? src.slice(1) : src;
+  const parts = cleanSrc.split('/');
+  const file = parts.pop();
+  const folder = parts[parts.length - 1] || 'root';
+  return dimensions[folder]?.[file] || { width: 800, height: 600 };
+}
 ---
 
 <Layout title="Event Photography" description="Professional event photography services in Iredell County, NC. Capturing special moments at weddings, parties, corporate events, and gatherings near Charlotte, Mooresville, and Statesville.">
   <div class="gallery">
-    <a href="/events/DSC00970.webp" class="gallery-item">
-      <img src="/events/DSC00970.webp" alt="Event photo" fetchpriority="high" />
-    </a>
-    <a href="/events/DSC00394.webp" class="gallery-item">
-      <img src="/events/DSC00394.webp" alt="Event photo" fetchpriority="high" />
-    </a>
-    <a href="/events/DSC01007(1) 2.webp" class="gallery-item">
-      <img src="/events/DSC01007(1) 2.webp" alt="Event photo" fetchpriority="high" />
-    </a>
-    <a href="/events/DSC01001(1).webp" class="gallery-item">
-      <img src="/events/DSC01001(1).webp" alt="Event photo" loading="lazy" />
-    </a>
-    <a href="/events/DSC00944.webp" class="gallery-item">
-      <img src="/events/DSC00944.webp" alt="Event photo" loading="lazy" />
-    </a>
-    <a href="/events/DSC00882.webp" class="gallery-item">
-      <img src="/events/DSC00882.webp" alt="Event photo" loading="lazy" />
-    </a>
-    <a href="/events/DSC00416.webp" class="gallery-item">
-      <img src="/events/DSC00416.webp" alt="Event photo" loading="lazy" />
-    </a>
-    <a href="/events/DSC01765.webp" class="gallery-item">
-      <img src="/events/DSC01765.webp" alt="Event photo" loading="lazy" />
-    </a>
+    {[
+      { src: "/events/DSC00970.webp", alt: "Event photo", priority: true },
+      { src: "/events/DSC00394.webp", alt: "Event photo", priority: true },
+      { src: "/events/DSC01007(1) 2.webp", alt: "Event photo", priority: true },
+      { src: "/events/DSC01001(1).webp", alt: "Event photo", priority: false },
+      { src: "/events/DSC00944.webp", alt: "Event photo", priority: false },
+      { src: "/events/DSC00882.webp", alt: "Event photo", priority: false },
+      { src: "/events/DSC00416.webp", alt: "Event photo", priority: false },
+      { src: "/events/DSC01765.webp", alt: "Event photo", priority: false },
+    ].map((photo, i) => {
+      const dims = getDims(photo.src);
+      return (
+        <a href={photo.src} class="gallery-item">
+          <img src={photo.src} alt={photo.alt} width={dims.width} height={dims.height} loading={photo.priority ? "eager" : "lazy"} fetchpriority={photo.priority ? "high" : "auto"} />
+        </a>
+      );
+    })}
   </div>
 </Layout>
 
