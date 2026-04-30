@@ -1,33 +1,25 @@
-# Astro Starter Kit: Minimal
+# Photography Portfolio
+
+A responsive photography portfolio website built with [Astro](https://astro.build) and deployed on [Cloudflare Pages](https://pages.cloudflare.com/).
+
+## 📷 Gallery Categories
+
+- **Architecture** — Urban and architectural photography
+- **Astrophotography** — Night sky and celestial photography
+- **Events** — Event and occasion photography
+- **Landscapes** — Natural landscape photography
+- **Pets** — Pet and animal portrait photography
+- **Portraits** — Portrait photography
+- **Wildlife** — Wildlife photography
+
+## 🚀 Getting Started
 
 ```sh
-npm create astro@latest -- --template minimal
+npm install
+npm run dev
 ```
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
 
 ## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
 
 | Command                   | Action                                           |
 | :------------------------ | :----------------------------------------------- |
@@ -38,13 +30,11 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-## 👀 Want to learn more?
+## 🌐 Deployment
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
----
+This project is configured for deployment on Cloudflare Pages via `wrangler.toml`.
 
 ## 📜 License & Copyright
 
-- **Code**: This project's source code is free to use, modify, and distribute.
+- **Code**: The source code for this project is free to use, modify, and distribute.
 - **Photographs**: All images and photography included in this repository are **© All Rights Reserved**. They may not be used, reproduced, or distributed without explicit permission.
