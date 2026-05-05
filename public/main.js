@@ -79,8 +79,12 @@ function changeImage(direction) {
 }
 
 function toggleMenu() {
-  document.querySelector('.nav-links')?.classList.toggle('active');
-  document.querySelector('.menu-toggle')?.classList.toggle('active');
+  const navLinks = document.querySelector('.nav-links');
+  const menuToggle = document.querySelector('.menu-toggle');
+  navLinks?.classList.toggle('active');
+  menuToggle?.classList.toggle('active');
+  const isActive = navLinks?.classList.contains('active');
+  menuToggle?.setAttribute('aria-expanded', isActive ? 'true' : 'false');
 }
 
 document.addEventListener('keydown', (e) => {

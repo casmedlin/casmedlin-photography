@@ -2,10 +2,12 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Page Not Found" description="The page you are looking for does not exist.">
+<Layout title="Page Not Found | Cas Medlin Photography" description="The page you are looking for does not exist.">
   <div class="error-container">
-    <h1 class="error-code">404</h1>
-    <h2 class="error-title">Page Not Found</h2>
+    <h1>
+      <span class="error-code">404</span>
+      <span class="error-title">Page Not Found</span>
+    </h1>
     <p class="error-message">The page you are looking for does not exist or has been moved.</p>
     <a href="/" class="home-link">Go Back Home</a>
     <p class="complaint">Found a broken link? Complain at <a href="mailto:info@casmedlin.com">info@casmedlin.com</a></p>
@@ -25,7 +27,7 @@ import Layout from '../layouts/Layout.astro';
   .error-code {
     font-size: 8rem;
     font-weight: 300;
-    color: #7ccf3c;
+    color: #22c55e;
     line-height: 1;
     margin-bottom: 0.5rem;
     letter-spacing: 0.05em;
@@ -44,7 +46,7 @@ import Layout from '../layouts/Layout.astro';
   }
   .home-link {
     display: inline-block;
-    background: #7ccf3c;
+    background: #22c55e;
     color: #151515;
     padding: 0.75rem 2rem;
     border-radius: 4px;
@@ -56,19 +58,19 @@ import Layout from '../layouts/Layout.astro';
     margin-bottom: 2rem;
   }
   .home-link:hover {
-    background: #9de667;
+    background: #16a34a;
   }
   .complaint {
     font-size: 0.875rem;
     color: #a3a3a3;
   }
   .complaint a {
-    color: #7ccf3c;
+    color: #22c55e;
     text-decoration: none;
     transition: color 0.2s;
   }
   .complaint a:hover {
-    color: #9de667;
+    color: #16a34a;
   }
   @media (max-width: 768px) {
     .error-code {

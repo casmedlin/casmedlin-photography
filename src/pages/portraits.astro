@@ -11,23 +11,24 @@ function getDims(src) {
 }
 
 const photos = [
-  { src: '/portraits/DSC06596.webp', alt: 'Portrait photo' },
-  { src: '/portraits/DSC05371 2.webp', alt: 'Portrait photo' },
-  { src: '/portraits/2025-07-23_21-25-17_620.webp', alt: 'Portrait photo' },
-  { src: '/portraits/2025-07-23_22-20-00_081.webp', alt: 'Portrait photo' },
-  { src: '/portraits/DSC01354b.webp', alt: 'Portrait photo' },
-  { src: '/portraits/DSC04264.webp', alt: 'Portrait photo' },
+  { src: '/portraits/DSC06596.webp', alt: 'Professional portrait in natural light' },
+  { src: '/portraits/DSC05371 2.webp', alt: 'Creative portrait with artistic lighting' },
+  { src: '/portraits/2025-07-23_21-25-17_620.webp', alt: 'Portrait session outdoors at sunset' },
+  { src: '/portraits/2025-07-23_22-20-00_081.webp', alt: 'Headshot portrait with natural background' },
+  { src: '/portraits/DSC01354b.webp', alt: 'Portrait with warm golden hour tones' },
+  { src: '/portraits/DSC04264.webp', alt: 'Creative portrait with dramatic shadows' },
   { src: '/portraits/DSC07582.webp', alt: 'Prom Picture of a young lady in Pink dress leaning aganst a tree, by Cas Medlin' },
   { src: '/portraits/DSC04666.webp', alt: 'Prom Picture of a young lady in Pink dress holding a bouquet on a bridge, by Cas Medlin' },
   { src: '/portraits/2026-04-25_15-38-25_536.webp', alt: 'Prom Picture of a young lady in Pink dress holding a bouquet on a bridge, by Cas Medlin' },
   { src: '/portraits/2026-04-25_15-38-23_300.webp', alt: 'Prom Picture of a young lady in Pink dress holding a bouquet on a bridge, by Cas Medlin' },
   { src: '/portraits/DSC07624.webp', alt: 'Prom Picture of a young lady in Pink dress holding a bouquet backdropped by a rock wall, by Cas Medlin' },
-  { src: '/portraits/2025-07-20_13-51-57_305 (2025-12-13T09_10_51.635).webp', alt: 'Portrait photo' },
-  { src: '/portraits/2025-07-21_00-41-47_938 (2025-12-13T09_07_35.015).webp', alt: 'Portrait photo' },
+  { src: '/portraits/2025-07-20_13-51-57_305 (2025-12-13T09_10_51.635).webp', alt: 'Prom portrait leaning against a tree in pink dress' },
+  { src: '/portraits/2025-07-21_00-41-47_938 (2025-12-13T09_07_35.015).webp', alt: 'Prom portrait holding bouquet on bridge in pink dress' },
 ];
 ---
 
-<Layout title="Portrait Photography" description="Professional portrait photography services in Iredell County, NC. Family portraits, headshots, senior photos, and creative portrait sessions near Charlotte, Mooresville, and Troutman.">
+<Layout title="Portrait Photography | Cas Medlin | Iredell County, NC" description="Professional portrait photography services in Iredell County, NC. Family portraits, headshots, senior photos, and creative portrait sessions near Charlotte, Mooresville, and Troutman." breadcrumbs={[{ name: 'Portraits', url: '/portraits' }]}>
+  <h1 class="page-title">Portrait Photography</h1>
   <div class="gallery">
     {photos.map((photo, i) => {
       const dims = getDims(photo.src);
@@ -41,6 +42,14 @@ const photos = [
 </Layout>
 
 <style>
+  .page-title {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: #fff;
+    margin: 1rem 0 1.5rem;
+    padding-left: 0.5rem;
+    letter-spacing: 0.05em;
+  }
   .gallery {
     max-width: 1800px;
     margin: 0 auto;

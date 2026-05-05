@@ -3,7 +3,10 @@
   
   if (!('PerformanceObserver' in window) || !('sendBeacon' in navigator)) return;
   
-  const reportUrl = 'https://www.google-analytics.com/mp/collect?measurement_id=G-5LHBPEXY32&api_secret=YOUR_API_SECRET';
+  // Configure with your GA4 Measurement Tracking ID
+  // Note: Use environment variables for the API secret in production
+  const measurementId = 'G-5LHBPEXY32';
+  const reportUrl = `https://www.google-analytics.com/mp/collect?measurement_id=${measurementId}&api_secret=${'YOUR_API_SECRET'}`;
   const vitals = {};
   
   function sendToAnalytics(metric) {

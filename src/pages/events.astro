@@ -11,17 +11,18 @@ function getDims(src) {
 }
 ---
 
-<Layout title="Event Photography" description="Professional event photography services in Iredell County, NC. Capturing special moments at weddings, parties, corporate events, and gatherings near Charlotte, Mooresville, and Statesville.">
+<Layout title="Event Photography | Cas Medlin | Iredell County, NC" description="Professional event photography services in Iredell County, NC. Capturing special moments at weddings, parties, corporate events, and gatherings near Charlotte, Mooresville, and Statesville." breadcrumbs={[{ name: 'Events', url: '/events' }]}>
+  <h1 class="page-title">Event Photography</h1>
   <div class="gallery">
     {[
-      { src: "/events/DSC00970.webp", alt: "Event photo", priority: true },
-      { src: "/events/DSC00394.webp", alt: "Event photo", priority: true },
-      { src: "/events/DSC01007(1) 2.webp", alt: "Event photo", priority: true },
-      { src: "/events/DSC01001(1).webp", alt: "Event photo", priority: false },
-      { src: "/events/DSC00944.webp", alt: "Event photo", priority: false },
-      { src: "/events/DSC00882.webp", alt: "Event photo", priority: false },
-      { src: "/events/DSC00416.webp", alt: "Event photo", priority: false },
-      { src: "/events/DSC01765.webp", alt: "Event photo", priority: false },
+      { src: "/events/DSC00970.webp", alt: "Concert event with stage lighting", priority: true },
+      { src: "/events/DSC00394.webp", alt: "Event photography capturing candid moments", priority: true },
+      { src: "/events/DSC01007(1) 2.webp", alt: "Joe Smallbone of For King and Country performing on stage", priority: true },
+      { src: "/events/DSC01001(1).webp", alt: "Event crowd and atmosphere", priority: false },
+      { src: "/events/DSC00944.webp", alt: "Worship at a Christian concert event", priority: false },
+      { src: "/events/DSC00882.webp", alt: "Event venue with attendees", priority: false },
+      { src: "/events/DSC00416.webp", alt: "Event performance on stage", priority: false },
+      { src: "/events/DSC01765.webp", alt: "Live event with audience participation", priority: false },
     ].map((photo, i) => {
       const dims = getDims(photo.src);
       return (
@@ -34,6 +35,14 @@ function getDims(src) {
 </Layout>
 
 <style>
+  .page-title {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: #fff;
+    margin: 1rem 0 1.5rem;
+    padding-left: 0.5rem;
+    letter-spacing: 0.05em;
+  }
   .gallery {
     max-width: 1800px; margin: 0 auto;
     display: grid;

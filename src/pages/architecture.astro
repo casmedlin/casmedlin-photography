@@ -11,18 +11,19 @@ function getDims(src) {
 }
 
 const photos = [
-  { src: '/Architecture/23-08-13 10-50-37 0722.webp', alt: 'Architecture photo 23-08-13 10-50-37 0722' },
-  { src: '/Architecture/DSC00323.webp', alt: 'Architecture photo DSC00323' },
-  { src: '/Architecture/DSC03332.webp', alt: 'Architecture photo DSC03332' },
-  { src: '/Architecture/DSC04725 Large.webp', alt: 'Architecture photo DSC04725 Large' },
-  { src: '/hCydvjybRh-HUghO949Ufw.webp', alt: 'Architecture photo hCydvjybRh-HUghO949Ufw' },
-  { src: '/Architecture/DSC02456.webp', alt: 'Architecture photo' },
-  { src: '/Architecture/DSC08754 3.webp', alt: 'Architecture photo' },
-  { src: '/Architecture/July 22 CAS_0984(1).webp', alt: 'Architecture photo' }
+  { src: '/Architecture/23-08-13 10-50-37 0722.webp', alt: 'Interior of restaurant dining room with wooden chairs and tables' },
+  { src: '/Architecture/DSC00323.webp', alt: 'Blue coastal house with garden and chimney' },
+  { src: '/Architecture/DSC03332.webp', alt: 'Charlotte skyline on hazy day' },
+  { src: '/Architecture/DSC04725 Large.webp', alt: 'Brick tunnel with arched ceiling' },
+  { src: '/hCydvjybRh-HUghO949Ufw.webp', alt: 'Interior of restaurant with diamond-patterned windows' },
+  { src: '/Architecture/DSC02456.webp', alt: 'Modern building exterior with vertical windows and rooftop garden' },
+  { src: '/Architecture/DSC08754 3.webp', alt: 'Circular skylight with red and white curved walls' },
+  { src: '/Architecture/July 22 CAS_0984(1).webp', alt: 'Industrial ceiling with white steel trusses and glass skylights' }
 ];
 ---
 
-<Layout title="Architecture Photography" description="Architecture photography by Cas Medlin showcasing structures, geometry, and urban form from across the region.">
+<Layout title="Architecture Photography | Cas Medlin | Urban Photography NC" description="Architecture photography by Cas Medlin showcasing structures, geometry, and urban form from across the region." breadcrumbs={[{ name: 'Architecture', url: '/architecture' }]}>
+  <h1 class="page-title">Architecture Photography</h1>
   <div class="gallery">
     {photos.map((photo, i) => {
       const dims = getDims(photo.src);
@@ -36,6 +37,14 @@ const photos = [
 </Layout>
 
 <style>
+  .page-title {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: #fff;
+    margin: 1rem 0 1.5rem;
+    padding-left: 0.5rem;
+    letter-spacing: 0.05em;
+  }
   .gallery {
     max-width: 1800px;
     margin: 0 auto;

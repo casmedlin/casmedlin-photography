@@ -11,19 +11,19 @@ function getDims(src) {
 }
 
 let photos = [
-  { src: '/pets/2023-12-04_17-13-23_621.webp', alt: 'Pet photo 2023-12-04', ratio: 0.6666 },
-  { src: '/pets/2023-12-04_16-52-14_336 (2023-12-17T13_14_31.240).webp', alt: 'Pet photo 2023-12-04', ratio: 0.6667 },
-  { src: '/pets/DSC01004.webp', alt: 'Pet photo DSC01004', ratio: 0.6667 },
-  { src: '/pets/DSC02058.webp', alt: 'Pet photo DSC02058', ratio: 0.6667 },
-  { src: '/pets/DSC02123.webp', alt: 'Pet photo DSC02123', ratio: 0.6667 },
-  { src: '/pets/DSC04153.webp', alt: 'Pet photo DSC04153', ratio: 0.6667 },
-  { src: '/pets/DSC09913.webp', alt: 'Pet photo DSC09913', ratio: 0.6667 },
-  { src: '/pets/DSC03490.webp', alt: 'Pet photo DSC03490', ratio: 0.471 },
-  { src: '/pets/DSC09920.webp', alt: 'Pet photo DSC09920', ratio: 0.0561 },
-  { src: '/pets/DSC04995.webp', alt: 'Pet photo DSC04995', ratio: 1.431 },
-  { src: '/pets/CAS_0015.webp', alt: 'Pet photo CAS 0015', ratio: 1.5 },
-  { src: '/pets/DSC04992.webp', alt: 'Pet photo DSC04992', ratio: 1.4988 },
-  { src: '/pets/DSC02122 2.webp', alt: 'Pet photo DSC02122 2', ratio: 1.7483 },
+  { src: '/pets/2023-12-04_17-13-23_621.webp', alt: 'Pet portrait of dog with happy expression', ratio: 0.6666 },
+  { src: '/pets/2023-12-04_16-52-14_336 (2023-12-17T13_14_31.240).webp', alt: 'Cat portrait with curious gaze', ratio: 0.6667 },
+  { src: '/pets/DSC01004.webp', alt: 'Dog sitting for portrait session', ratio: 0.6667 },
+  { src: '/pets/DSC02058.webp', alt: 'Pet photo with playful energy', ratio: 0.6667 },
+  { src: '/pets/DSC02123.webp', alt: 'Dog portrait in outdoor setting', ratio: 0.6667 },
+  { src: '/pets/DSC04153.webp', alt: 'Close-up pet portrait with warm tones', ratio: 0.6667 },
+  { src: '/pets/DSC09913.webp', alt: 'Bubby the Cocker Spaniel Chihuahua mix portrait', ratio: 0.6667 },
+  { src: '/pets/DSC03490.webp', alt: 'Pet portrait with natural lighting', ratio: 0.471 },
+  { src: '/pets/DSC09920.webp', alt: 'Dog resting comfortably during portrait session', ratio: 0.0561 },
+  { src: '/pets/DSC04995.webp', alt: 'Cat lounging for portrait session', ratio: 1.431 },
+  { src: '/pets/CAS_0015.webp', alt: 'Pet portrait capturing personality', ratio: 1.5 },
+  { src: '/pets/DSC04992.webp', alt: 'Dog portrait with expressive eyes', ratio: 1.4988 },
+  { src: '/pets/DSC02122 2.webp', alt: 'Pet playing during portrait session', ratio: 1.7483 },
 ];
   // Group by orientation and alternate portrait and landscape images
   photos.sort((a, b) => a.ratio - b.ratio);
@@ -39,7 +39,8 @@ let photos = [
   photos = arranged;
 ---
 
-<Layout title="Pet Photography" description="Adorable pet photography sessions capturing your furry friends' personality. Dog, cat, and pet portraits in Iredell County, NC by Cas Medlin.">
+<Layout title="Pet Photography | Cas Medlin | Iredell County, NC" description="Adorable pet photography sessions capturing your furry friends' personality. Dog, cat, and pet portraits in Iredell County, NC by Cas Medlin." breadcrumbs={[{ name: 'Pets', url: '/pets' }]}>
+  <h1 class="page-title">Pet Photography</h1>
   <div class="gallery">
     {photos.map((photo, i) => {
       const dims = getDims(photo.src);
@@ -53,19 +54,13 @@ let photos = [
 </Layout>
 
 <style>
-  .page-header {
-    max-width: 1800px;
-    margin: 0 auto 2rem;
-    padding: 0 0.5rem;
-  }
-  .page-header h1 {
-    font-size: 2rem;
-    font-weight: 300;
-    margin-bottom: 0.5rem;
-  }
-  .page-header p {
-    color: #a3a3a3;
-    font-size: 1rem;
+  .page-title {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: #fff;
+    margin: 1rem 0 1.5rem;
+    padding-left: 0.5rem;
+    letter-spacing: 0.05em;
   }
   .gallery {
     max-width: 1800px;

@@ -2,15 +2,15 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="About" description="Meet Cas Medlin - freelance photographer and graphic designer based in Iredell County, North Carolina. Christian, creative, and passionate about capturing life's moments." image="/DSC06596.webp">
+<Layout title="About Cas Medlin | Freelance Photographer & Graphic Designer NC" description="Meet Cas Medlin - freelance photographer and graphic designer based in Iredell County, North Carolina. Christian, creative, and passionate about capturing life's moments." image="/DSC06596.webp" schemaType="AboutPage" breadcrumbs={[{ name: 'About', url: '/about' }]}>
   <div class="content">
     <div class="hero">
       <div class="hero-image">
-        <img src="/DSC06596.webp" alt="Cas Medlin" fetchpriority="high" />
+        <img src="/DSC06596.webp" alt="Cas Medlin - Freelance Photographer and Graphic Designer" fetchpriority="high" width="400" height="300" />
       </div>
       <div class="hero-text">
-        <h1>Hi, I'm Cas</h1>
-        <p class="subtitle">Freelance Photographer & Graphic Designer</p>
+        <h1>Hi, I'm Cas Medlin</h1>
+        <p class="subtitle">Freelance Photographer & Graphic Designer in Iredell County, NC</p>
       </div>
     </div>
 
@@ -20,6 +20,7 @@ import Layout from '../layouts/Layout.astro';
         <p>I'm a passionate Christian, photographer, and graphic designer dedicated to capturing life's meaningful moments. Whether it's the perfect landscape, a cherished pet, or a milestone event, I bring creativity and care to every session.</p>
         <p>Check out my other project at <a href="https://www.biblicalencouragement.org/" target="_blank" rel="noopener">Biblical Encouragement</a> for biblically rooted encouragement.</p>
         <p>I currently serve as photographer and digital media coordinator for <a href="https://faithstatesville.org/" target="_blank" rel="noopener">Faith Church Statesville</a>.</p>
+        <p>I have also served as a photographer for <a href="https://crossroadscare.clinic/" target="_blank" rel="noopener">Crossroads Care Clinic</a> particularly at the last few Life Banquets.</p>
       </div>
 
       <div class="contact-section">
@@ -101,7 +102,7 @@ import Layout from '../layouts/Layout.astro';
     padding: 2rem;
     border: 1px solid #2a2a2a;
     border-radius: 16px;
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(4, 4, 4, 0.05);
   }
   .contact-card h2 {
     font-size: 1.5rem;
@@ -119,7 +120,7 @@ import Layout from '../layouts/Layout.astro';
     align-items: center;
     gap: 0.5rem;
     padding: 0.875rem 1.5rem;
-    background: #7ccf3c;
+    background: #22c55e;
     color: #fff;
     text-decoration: none;
     border-radius: 9999px;
@@ -128,15 +129,15 @@ import Layout from '../layouts/Layout.astro';
     transition: background 0.2s, transform 0.2s;
   }
   .email-btn:hover {
-    background: #6bb12f;
+    background: #16a34a;
     transform: translateY(-1px);
   }
   .about-text a {
-    color: #7ccf3c;
+    color: #22c55e;
   }
   .about-text a:hover,
   .about-text a:focus {
-    color: #9de667;
+    color: #16a34a;
   }
   .email-btn {
     color: #fff;
@@ -165,14 +166,14 @@ import Layout from '../layouts/Layout.astro';
     border-bottom: none;
   }
   .services li a {
-    color: #7ccf3c;
+    color: #22c55e;
     text-decoration: none;
     display: inline-block;
     width: 100%;
   }
   .services li a:hover,
   .services li a:focus {
-    color: #9de667;
+    color: #16a34a;
     text-decoration: none;
   }
   @media (max-width: 768px) {

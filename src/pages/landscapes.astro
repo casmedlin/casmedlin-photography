@@ -11,31 +11,31 @@ function getDims(src) {
 }
 
 const photos = [
-  { src: '/landscapes/2023-08-12_17-10-21_419.webp', alt: 'Landscape photo' },
-  { src: '/landscapes/2023-08-12_17-21-57_418.webp', alt: 'Landscape photo' },
-  { src: '/landscapes/2023-08-12_18-18-25_343.webp', alt: 'Landscape photo' },
-  { src: '/landscapes/2025-07-22_10-18-30_806.webp', alt: 'Landscape photo' },
-  { src: '/2025-07-23_21-02-21_091.webp', alt: 'Landscape photo' },
-  { src: '/landscapes/2025-09-11_19-39-21_733.webp', alt: 'Landscape photo' },
-  { src: '/landscapes/C0A118B3-8543-455A-8688-D4D056F13704DSC07868.webp', alt: 'Landscape photo' },
-  { src: '/landscapes/D5D8D35C-E227-46DA-9653-16C6219CCA3FDSC01500b Large.webp', alt: 'Landscape photo' },
-  { src: '/landscapes/DSC00278.webp', alt: 'Landscape photo' },
-  { src: '/landscapes/DSC00653.webp', alt: 'Landscape photo' },
-  { src: '/landscapes/DSC06626.webp', alt: 'Landscape photo' },
-  { src: '/landscapes/DSC03284.webp', alt: 'Landscape photo' },
-  { src: '/landscapes/DSC03490.webp', alt: 'Landscape photo' },
-  { src: '/landscapes/DSC04976.webp', alt: 'Landscape photo' },
-  { src: '/landscapes/DSC05112.webp', alt: 'Landscape photo' },
-  { src: '/landscapes/DSC05807 2.webp', alt: 'Landscape photo' },
-  { src: '/landscapes/DSC05995.webp', alt: 'Landscape photo' },
-  { src: '/landscapes/DSC06507.webp', alt: 'Landscape photo' },
-  { src: '/landscapes/DSC08025.webp', alt: 'Landscape photo' },
-  { src: '/landscapes/DSC08176.webp', alt: 'Landscape photo' },
-  { src: '/landscapes/DSC09558.webp', alt: 'Landscape photo' },
+  { src: '/landscapes/2023-08-12_17-10-21_419.webp', alt: 'Mountain landscape with rolling hills at golden hour' },
+  { src: '/landscapes/2023-08-12_17-21-57_418.webp', alt: 'Scenic valley with layered mountain ridges' },
+  { src: '/landscapes/2023-08-12_18-18-25_343.webp', alt: 'Forest path through dense woodland at sunset' },
+  { src: '/landscapes/2025-07-22_10-18-30_806.webp', alt: 'Alpine meadow with wildflowers and snow-capped peaks' },
+  { src: '/2025-07-23_21-02-21_091.webp', alt: 'Lupine flowers on rolling hills with snow-covered peaks in Kenai Fjords National Park, Alaska' },
+  { src: '/landscapes/2025-09-11_19-39-21_733.webp', alt: 'Misty mountain range at twilight' },
+  { src: '/landscapes/C0A118B3-8543-455A-8688-D4D056F13704DSC07868.webp', alt: 'Coastal landscape with dramatic cliffs and ocean' },
+  { src: '/landscapes/D5D8D35C-E227-46DA-9653-16C6219CCA3FDSC01500b Large.webp', alt: 'Waterfall cascading down mossy rock face' },
+  { src: '/landscapes/DSC00278.webp', alt: 'Expansive prairie grassland under wide sky' },
+  { src: '/landscapes/DSC00653.webp', alt: 'River winding through autumn forest' },
+  { src: '/landscapes/DSC06626.webp', alt: 'Glacier in mountain valley' },
+  { src: '/landscapes/DSC03284.webp', alt: 'Rugged mountain ridge with pine trees' },
+  { src: '/landscapes/DSC03490.webp', alt: 'Forest canopy with dappled sunlight' },
+  { src: '/landscapes/DSC04976.webp', alt: 'Rolling hills at dawn with morning mist' },
+  { src: '/landscapes/DSC05807 2.webp', alt: 'Meadow wildflowers with mountain backdrop' },
+  { src: '/landscapes/DSC05995.webp', alt: 'Panoramic view of layered mountain ranges' },
+  { src: '/landscapes/DSC06507.webp', alt: 'Pine forest trail in autumn colors' },
+  { src: '/landscapes/DSC08025.webp', alt: 'Stream flowing through rocky mountain valley' },
+  { src: '/landscapes/DSC08176.webp', alt: 'Dramatic storm clouds over open landscape' },
+  { src: '/landscapes/DSC09558.webp', alt: 'Misty morning in a mountain forest' },
 ];
 ---
 
-<Layout title="Landscape Photography" description="Explore stunning landscape photography by Cas Medlin featuring mountains, forests, waterfalls, and scenic vistas across North Carolina and beyond.">
+<Layout title="Landscape Photography | Cas Medlin | Iredell County, NC" description="Explore stunning landscape photography by Cas Medlin featuring mountains, forests, waterfalls, and scenic vistas across North Carolina and beyond." breadcrumbs={[{ name: 'Landscapes', url: '/landscapes' }]}>
+  <h1 class="page-title">Landscape Photography</h1>
   <div class="gallery">
     {photos.map((photo, i) => {
       const dims = getDims(photo.src);
@@ -49,6 +49,14 @@ const photos = [
 </Layout>
 
 <style>
+  .page-title {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: #fff;
+    margin: 1rem 0 1.5rem;
+    padding-left: 0.5rem;
+    letter-spacing: 0.05em;
+  }
   .gallery {
     max-width: 1800px;
     margin: 0 auto;

@@ -4,10 +4,13 @@ interface Props {
   description?: string;
   image?: string;
   canonical?: string;
+  heading?: string;
+  schemaType?: string;
+  breadcrumbs?: { name: string; url: string }[];
 }
 
-const { title, description = 'Photography portfolio by Cas Medlin, freelance photographer based in Iredell County, North Carolina specializing in landscapes, wildlife, portraits, events, pets, and astrophotography.', image = '/favicon.webp', canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://casmedlin.com').toString() } = Astro.props;
-  const siteName = 'Cas Medlin';
+const { title, description = 'Photography portfolio by Cas Medlin, freelance photographer based in Iredell County, North Carolina specializing in landscapes, wildlife, portraits, events, pets, and astrophotography.', image = '/favicon.webp', canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://casmedlin.com').toString(), heading, schemaType = 'WebPage', breadcrumbs = [] } = Astro.props;
+const siteName = 'Cas Medlin';
 const pageUrl = new URL(Astro.url.pathname, Astro.site ?? 'https://casmedlin.com').toString();
 const ogImage = image.startsWith('http') ? image : new URL(image, Astro.site ?? 'https://casmedlin.com').toString();
 
@@ -22,6 +25,19 @@ const navLinks = [
   { href: '/astrophotography', label: 'Astrophotography' },
   { href: '/about', label: 'About' },
 ];
+
+const categories = ['landscapes', 'architecture', 'pets', 'portraits', 'wildlife', 'events', 'astrophotography'];
+const currentPath = Astro.url.pathname.slice(1);
+const isCategoryPage = categories.includes(currentPath);
+let prevHref = '';
+let nextHref = '';
+if (isCategoryPage) {
+  const currentIndex = categories.indexOf(currentPath);
+  const prevIndex = currentIndex === 0 ? categories.length - 1 : currentIndex - 1;
+  const nextIndex = currentIndex === categories.length - 1 ? 0 : currentIndex + 1;
+  prevHref = '/' + categories[prevIndex];
+  nextHref = '/' + categories[nextIndex];
+}
 ---
 
 <!doctype html>
@@ -29,14 +45,20 @@ const navLinks = [
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/webp" href="/favicon.webp" />
+    <meta name="theme-color" content="#151515" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="icon" type="image/webp" href="/favicon.webp" sizes="any" />
+    <link rel="icon" type="image/png" href="/favicon.ico" sizes="64x64" />
+    <link rel="apple-touch-icon" href="/favicon.ico" />
+    <link rel="manifest" href="/manifest.json" />
     <link rel="canonical" href={canonical} />
     <title>{title} | {siteName}</title>
     <meta name="description" content={description} />
     <meta name="author" content="Cas Medlin" />
     <meta name="robots" content="index, follow" />
     <meta name="googlebot" content="index, follow" />
-    
+
     <meta property="og:type" content="website" />
     <meta property="og:title" content={`${title} | ${siteName}`} />
     <meta property="og:description" content={description} />
@@ -45,46 +67,84 @@ const navLinks = [
     <meta property="og:image:alt" content={title} />
     <meta property="og:site_name" content={siteName} />
     <meta property="og:locale" content="en_US" />
-    
+
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={`${title} | ${siteName}`} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
     <meta name="twitter:image:alt" content={title} />
     <meta name="twitter:creator" content="@casmedlin" />
-    
+
     <script type="application/ld+json" set:html={JSON.stringify({
       '@context': 'https://schema.org',
-      '@type': 'Person',
-      name: 'Cas Medlin',
-      jobTitle: 'Freelance Photographer',
-      description: description,
-      url: pageUrl,
-      image: ogImage,
-      email: 'mailto:info@casmedlin.com',
-      sameAs: [
-        'https://instagram.com/casmedlin',
-        'https://facebook.com/casmedlin1',
-        'https://youtube.com/@casmedlin'
-      ],
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Iredell County',
-        addressRegion: 'NC',
-        addressCountry: 'US'
-      },
-      knowsAbout: ['Landscape Photography', 'Wildlife Photography', 'Portrait Photography', 'Event Photography', 'Pet Photography', 'Astrophotography']
+      '@graph': [
+        {
+          '@type': schemaType,
+          name: `${title} | ${siteName}`,
+          description: description,
+          url: pageUrl,
+          image: ogImage,
+          author: {
+            '@type': 'Person',
+            name: siteName,
+            url: Astro.site?.toString(),
+            sameAs: [
+              'https://instagram.com/casmedlin',
+              'https://facebook.com/casmedlin1',
+              'https://youtube.com/@casmedlin'
+            ]
+          },
+          publisher: {
+            '@type': 'Person',
+            name: siteName,
+            image: ogImage
+          }
+        },
+        {
+          '@type': 'Person',
+          name: siteName,
+          jobTitle: 'Freelance Photographer',
+          description: description,
+          url: Astro.site?.toString(),
+          image: ogImage,
+          email: 'mailto:info@casmedlin.com',
+          sameAs: [
+            'https://instagram.com/casmedlin',
+            'https://facebook.com/casmedlin1',
+            'https://youtube.com/@casmedlin'
+          ],
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'Iredell County',
+            addressRegion: 'NC',
+            addressCountry: 'US'
+          },
+          knowsAbout: ['Landscape Photography', 'Wildlife Photography', 'Portrait Photography', 'Event Photography', 'Pet Photography', 'Astrophotography', 'Architecture Photography']
+        },
+        ...(breadcrumbs.length > 0 ? [{
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://casmedlin.com/' },
+            ...breadcrumbs.map((crumb, i) => ({
+              '@type': 'ListItem',
+              position: i + 2,
+              name: crumb.name,
+              item: crumb.url.startsWith('http') ? crumb.url : `https://casmedlin.com${crumb.url}`
+            }))
+          ]
+        }] : [])
+      ]
     })} />
 
-     <!-- Resource Hints for performance -->
-     <link rel="preconnect" href="https://www.googletagmanager.com" />
-     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-     <link rel="preload" href="/main.js" as="script" />
-     
-     <!-- Core Web Vitals monitoring -->
-     <script is:inline src="/vitals.js" defer></script>
-     
-     <!-- Google tag (gtag.js) - Deferred for performance -->
+    <!-- Resource Hints for performance -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="preload" href="/main.js" as="script" />
+
+    <!-- Core Web Vitals monitoring -->
+    <script is:inline src="/vitals.js" defer></script>
+
+    <!-- Google tag (gtag.js) - Deferred for performance -->
     <script type="text/javascript" client:load>
       (function() {
         var loadGTM = function() {
@@ -118,11 +178,11 @@ const navLinks = [
         }
       })();
     </script>
-    
-     <!-- Main script with deferred loading -->
-     <script is:inline src="/main.js" defer></script>
-     
-     <!-- Service Worker Registration -->
+
+    <!-- Main script with deferred loading -->
+    <script is:inline src="/main.js" defer></script>
+
+    <!-- Service Worker Registration -->
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
@@ -131,36 +191,57 @@ const navLinks = [
       }
     </script>
   </head>
-  <body>
-    <nav class="nav">
+  <body class={['/about', '/about/'].includes(Astro.url.pathname) ? 'about-page' : ''}>
+    <a href="#main-content" class="skip-link">Skip to content</a>
+    <nav class="nav" aria-label="Main navigation">
       <div class="nav-inner">
         <a href="/" class="logo">
           <img src="/favicon.webp" alt="Cas Medlin Photography" class="logo-img" width="32" height="32" />
           <span class="logo-text">{siteName}</span>
         </a>
-        <button class="menu-toggle" aria-label="Toggle menu">
+        <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
           <span></span>
           <span></span>
           <span></span>
         </button>
-        <div class="nav-links" id="nav-links">
+        <div class="nav-links" id="nav-links" role="menubar">
           {navLinks.map((link) => (
-            <a href={link.href} class="nav-link">{link.label}</a>
+            <a href={link.href} class="nav-link" role="menuitem" aria-current={Astro.url.pathname === link.href || (link.href !== '/' && Astro.url.pathname.startsWith(link.href)) ? 'page' : undefined}>{link.label}</a>
           ))}
         </div>
       </div>
     </nav>
 
-    <main>
+    <main id="main-content">
       <slot />
+      {(Astro.url.pathname === '/' || isCategoryPage) && (
+        <div class="nav-buttons">
+          {Astro.url.pathname === '/' ? (
+            <a href="/portraits" class="nav-button">See More</a>
+          ) : (
+            <>
+              <a href={prevHref} class="nav-button">Go Back</a>
+              <a href={nextHref} class="nav-button">See More</a>
+            </>
+          )}
+        </div>
+      )}
     </main>
 
     <footer class="footer">
       <div class="footer-content">
-        <p>© {new Date().getFullYear()} Cas Medlin</p>
-        <div class="contact-info">
-          <a href="mailto:info@casmedlin.com">info@casmedlin.com</a>
+        <div class="work-together">
+          <h3>Let's Work Together</h3>
+          <p>Have a project in mind or want to book a session?</p>
+          <a
+            href="mailto:info@casmedlin.com"
+            class="work-together-email"
+            style={['/about', '/about/'].includes(Astro.url.pathname) ? 'color: #22c55e !important;' : undefined}
+          >
+            info@casmedlin.com
+          </a>
         </div>
+        <p>© {new Date().getFullYear()} Cas Medlin</p>
         <div class="social-links">
           <a href="https://instagram.com/casmedlin" target="_blank" aria-label="Instagram" rel="noopener">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
@@ -180,11 +261,11 @@ const navLinks = [
       </div>
     </footer>
 
-      <div id="lightbox" class="lightbox">
-        <button class="lightbox-close" id="lightbox-close-btn">×</button>
+      <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+        <button class="lightbox-close" id="lightbox-close-btn" aria-label="Close image viewer">×</button>
         <div class="lightbox-controls">
-          <button class="lightbox-prev" id="lightbox-prev-btn">‹</button>
-          <button class="lightbox-next" id="lightbox-next-btn">›</button>
+          <button class="lightbox-prev" id="lightbox-prev-btn" aria-label="Previous image">‹</button>
+          <button class="lightbox-next" id="lightbox-next-btn" aria-label="Next image">›</button>
         </div>
         <img id="lightbox-img" src="" alt="" />
         <p id="lightbox-caption" class="lightbox-caption"></p>
@@ -209,6 +290,37 @@ const navLinks = [
      font-family: system-ui, -apple-system, sans-serif;
      min-height: 100vh;
    }
+   .skip-link {
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #22c55e;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    z-index: 200;
+    transition: top 0.2s;
+  }
+  .skip-link:focus {
+    top: 0.5rem;
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+  }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
   .nav {
     position: fixed;
     top: 0;
@@ -237,6 +349,11 @@ const navLinks = [
     display: flex;
     align-items: center;
     gap: 0.5rem;
+  }
+  .logo:focus {
+    outline: 2px solid #22c55e;
+    outline-offset: 2px;
+    border-radius: 4px;
   }
   .logo-img {
     width: 32px;
@@ -281,15 +398,21 @@ const navLinks = [
       display: flex;
     }
   }
+  .nav-link[aria-current="page"] {
+    color: #22c55e;
+    font-weight: 600;
+  }
   .nav-link {
     font-size: 0.875rem;
     letter-spacing: 0.025em;
-    color: #a3a3a3;
+    color: #d4d4d4;
     text-decoration: none;
     transition: color 0.2s;
   }
-  .nav-link:hover {
-    color: #fff;
+  .nav-link:hover,
+  .nav-link:focus {
+    color: #22c55e;
+    outline: none;
   }
   .menu-toggle {
     display: none;
@@ -299,6 +422,11 @@ const navLinks = [
     border: none;
     cursor: pointer;
     padding: 0.5rem;
+  }
+  .menu-toggle:focus {
+    outline: 2px solid #22c55e;
+    outline-offset: 2px;
+    border-radius: 4px;
   }
   @media (max-width: 768px) {
     .menu-toggle {
@@ -329,17 +457,37 @@ const navLinks = [
     flex-direction: column;
     gap: 0.5rem;
   }
-  .footer p {
-    font-size: 0.875rem;
-    color: #9e9e9e;
+  .work-together {
+    margin-bottom: 1rem;
   }
-  .contact-info a {
+  .work-together h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #fff;
+    margin: 0 0 0.5rem 0;
+  }
+  .work-together p {
+    font-size: 0.875rem;
+    color: #a3a3a3;
+    margin: 0 0 0.75rem 0;
+    line-height: 1.4;
+  }
+  .work-together-email {
     color: #a3a3a3;
     text-decoration: none;
     font-size: 0.875rem;
+    font-weight: 500;
+    transition: color 0.2s;
   }
-  .contact-info a:hover {
+  .work-together-email:hover,
+  .work-together-email:focus {
     color: #fff;
+    outline: 2px solid #22c55e;
+    outline-offset: 2px;
+  }
+  .footer p {
+    font-size: 0.875rem;
+    color: #9e9e9e;
   }
    .footer-links {
      display: flex;
@@ -353,9 +501,12 @@ const navLinks = [
     font-size: 0.875rem;
     transition: color 0.2s;
   }
-   .footer-links a:hover {
-     color: #a3a3a3;
-   }
+  .footer-links a:hover,
+  .footer-links a:focus {
+    color: #a3a3a3;
+    outline: 2px solid #22c55e;
+    outline-offset: 2px;
+  }
    .social-links {
     display: flex;
     justify-content: center;
@@ -367,8 +518,15 @@ const navLinks = [
     display: flex;
     align-items: center;
   }
-  .social-links a:hover {
-    color: #fff;
+   .social-links a:hover,
+   .social-links a:focus {
+    color: #22c55e;
+    outline: none;
+  }
+  .social-links a:focus svg {
+    outline: 2px solid #22c55e;
+    outline-offset: 2px;
+    border-radius: 4px;
   }
   .lightbox {
     display: none;
@@ -377,7 +535,7 @@ const navLinks = [
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.95);
+    background: rgba(4, 4, 4, 0.95);
     z-index: 100;
     align-items: center;
     justify-content: center;
@@ -432,6 +590,13 @@ const navLinks = [
     line-height: 1;
     z-index: 10;
   }
+  .lightbox-close:focus,
+  .lightbox-prev:focus,
+  .lightbox-next:focus {
+    outline: 2px solid #22c55e;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
   .lightbox-controls {
     position: absolute;
     left: 0;
@@ -455,6 +620,44 @@ const navLinks = [
   .lightbox-close:hover,
   .lightbox-prev:hover,
   .lightbox-next:hover {
-    color: #a3a3a3;
+    color: #666;
   }
-</style>
+  .nav-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+  .nav-button {
+    background: #22c55e;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: background 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .nav-button:hover,
+  .nav-button:focus {
+    background: #16a34a;
+  }
+  .nav-button:focus {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+  }
+  .footer .work-together-email {
+    color: #22c55e !important;
+  }
+  .footer .work-together-email:hover {
+    color: #16a34a !important;
+  }
+  body.about-page .work-together-email {
+    color: #22c55e !important;
+  }
+  body.about-page .work-together-email:hover {
+    color: #16a34a !important;
+  }
+  </style>
