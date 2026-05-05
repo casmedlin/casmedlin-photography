@@ -27,7 +27,7 @@ const navLinks = [
 ];
 
 const categories = ['landscapes', 'architecture', 'pets', 'portraits', 'wildlife', 'events', 'astrophotography'];
-const currentPath = Astro.url.pathname.slice(1);
+const currentPath = Astro.url.pathname.slice(1).replace(/\/$/, '');
 const isCategoryPage = categories.includes(currentPath);
 let prevHref = '';
 let nextHref = '';
