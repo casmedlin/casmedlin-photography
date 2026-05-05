@@ -217,11 +217,11 @@ if (isCategoryPage) {
       {(Astro.url.pathname === '/' || isCategoryPage) && (
         <div class="nav-buttons">
           {Astro.url.pathname === '/' ? (
-            <a href="/portraits" class="nav-button">See More</a>
+            <a href="/portraits" class="nav-button">Next &gt;</a>
           ) : (
             <>
-              <a href={prevHref} class="nav-button">Go Back</a>
-              <a href={nextHref} class="nav-button">See More</a>
+              <a href={prevHref} class="nav-button">&lt; Go Back</a>
+              <a href={nextHref} class="nav-button">Next &gt;</a>
             </>
           )}
         </div>
