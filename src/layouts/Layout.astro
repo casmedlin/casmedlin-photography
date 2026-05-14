@@ -29,6 +29,7 @@ const navLinks = [
 const categories = ['landscapes', 'architecture', 'pets', 'portraits', 'wildlife', 'events', 'astrophotography'];
 const currentPath = Astro.url.pathname.slice(1).replace(/\/$/, '');
 const isCategoryPage = categories.includes(currentPath);
+const isHomePage = Astro.url.pathname === '/' || Astro.url.pathname === '/index' || Astro.url.pathname === '/index.html';
 let prevHref = '';
 let nextHref = '';
 if (isCategoryPage) {
@@ -214,18 +215,16 @@ if (isCategoryPage) {
 
     <main id="main-content">
       <slot />
-      {(Astro.url.pathname === '/' || isCategoryPage) && (
-        <div class="nav-buttons">
-          {Astro.url.pathname === '/' ? (
-            <a href="/portraits" class="nav-button">Next &gt;</a>
-          ) : (
-            <>
-              <a href={prevHref} class="nav-button">&lt; Go Back</a>
-              <a href={nextHref} class="nav-button">Next &gt;</a>
-            </>
-          )}
-        </div>
-      )}
+      <div class="nav-buttons">
+        {isHomePage ? (
+          <a href="/portraits" class="nav-button">Next &gt;</a>
+        ) : isCategoryPage ? (
+          <>
+            <a href={prevHref} class="nav-button">&lt; Go Back</a>
+            <a href={nextHref} class="nav-button">Next &gt;</a>
+          </>
+        ) : null}
+      </div>
     </main>
 
     <footer class="footer">
