@@ -6,7 +6,7 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   output: 'static',
   build: {
-    format: 'directory',
+    format: 'file',
   },
   site: 'https://casmedlin.com',
   integrations: [sitemap()],

@@ -9,9 +9,9 @@ interface Props {
   breadcrumbs?: { name: string; url: string }[];
 }
 
-const { title, description = 'Photography portfolio by Cas Medlin, freelance photographer based in Iredell County, North Carolina specializing in landscapes, wildlife, portraits, events, pets, and astrophotography.', image = '/favicon.webp', canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://casmedlin.com').toString(), heading, schemaType = 'WebPage', breadcrumbs = [] } = Astro.props;
+const { title, description = 'Photography portfolio by Cas Medlin, freelance photographer based in Iredell County, North Carolina specializing in landscapes, wildlife, portraits, events, pets, and astrophotography.', image = '/favicon.webp', canonical = new URL(Astro.url.pathname.replace(/\.html$/, ''), Astro.site ?? 'https://casmedlin.com').toString(), heading, schemaType = 'WebPage', breadcrumbs = [] } = Astro.props;
 const siteName = 'Cas Medlin';
-const pageUrl = new URL(Astro.url.pathname, Astro.site ?? 'https://casmedlin.com').toString();
+const pageUrl = new URL(Astro.url.pathname.replace(/\.html$/, ''), Astro.site ?? 'https://casmedlin.com').toString();
 const ogImage = image.startsWith('http') ? image : new URL(image, Astro.site ?? 'https://casmedlin.com').toString();
 
 const navLinks = [
