@@ -26,19 +26,14 @@ const navLinks = [
   { href: '/about', label: 'About' },
 ];
 
-const categories = ['landscapes', 'architecture', 'pets', 'portraits', 'wildlife', 'events', 'astrophotography'];
-const currentPath = Astro.url.pathname.slice(1).replace(/\/$/, '');
-const isCategoryPage = categories.includes(currentPath);
-const isHomePage = Astro.url.pathname === '/' || Astro.url.pathname === '/index' || Astro.url.pathname === '/index.html';
-let prevHref = '';
-let nextHref = '';
-if (isCategoryPage) {
-  const currentIndex = categories.indexOf(currentPath);
-  const prevIndex = currentIndex === 0 ? categories.length - 1 : currentIndex - 1;
-  const nextIndex = currentIndex === categories.length - 1 ? 0 : currentIndex + 1;
-  prevHref = '/' + categories[prevIndex];
-  nextHref = '/' + categories[nextIndex];
-}
+const allPages = ['/', '/landscapes', '/architecture', '/pets', '/portraits', '/wildlife', '/events', '/astrophotography', '/about'];
+const currentPath = Astro.url.pathname.replace(/\/$/, '').replace(/\/index\.html$/, '') || '/';
+const currentIndex = allPages.indexOf(currentPath);
+const isHomePage = currentPath === '/';
+const prevPageIndex = currentIndex === 0 ? allPages.length - 1 : currentIndex - 1;
+const nextPageIndex = currentIndex === allPages.length - 1 ? 0 : currentIndex + 1;
+const prevHref = allPages[prevPageIndex];
+const nextHref = allPages[nextPageIndex];
 ---
 
 <!doctype html>
@@ -217,15 +212,15 @@ if (isCategoryPage) {
     <main id="main-content">
       <slot />
       <div class="nav-buttons">
-        {isHomePage ? (
-          <a href="/portraits" class="nav-button">Next &gt;</a>
-        ) : isCategoryPage ? (
-          <>
-            <a href={prevHref} class="nav-button">&lt; Go Back</a>
+          {isHomePage ? (
             <a href={nextHref} class="nav-button">Next &gt;</a>
-          </>
-        ) : null}
-      </div>
+          ) : (
+            <>
+              <a href={prevHref} class="nav-button">&lt; Go Back</a>
+              <a href={nextHref} class="nav-button">Next &gt;</a>
+            </>
+          )}
+        </div>
     </main>
 
     <footer class="footer">
@@ -251,6 +246,12 @@ if (isCategoryPage) {
           </a>
           <a href="https://youtube.com/@casmedlin" target="_blank" aria-label="YouTube" rel="noopener">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+          </a>
+          <a href="https://www.flickr.com/photos/casmedlin/" target="_blank" aria-label="Flickr" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6.5" cy="12" r="5"/><circle cx="17.5" cy="12" r="5"/></svg>
+          </a>
+          <a href="https://unsplash.com/@casmedlin" target="_blank" aria-label="Unsplash" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M15 4.5H9V8.5H15V4.5Z"/><path d="M4 10.5H9V14.5H15V10.5H20V19.5H4V10.5Z"/></svg>
           </a>
         </div>
         <div class="footer-links">
