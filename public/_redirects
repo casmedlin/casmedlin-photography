@@ -1,2 +1,2 @@
-# Cloudflare Pages redirects (if needed in future)
-# Example: /old-page /new-page 301
+# Force image sitemap over any auto-generated content
+/image-sitemap.xml  /image-sitemap.xml  200
