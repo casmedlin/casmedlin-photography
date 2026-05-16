@@ -65,7 +65,19 @@ export const GET: APIRoute = async () => {
     <priority>${page.priority}</priority>
   </url>`).join('');
 
-  const imageEntries = images.map(img => `
+  const imageAltText: Record<string, string> = {
+    'landscapes': 'Landscape photography by Cas Medlin',
+    'architecture': 'Architectural photography by Cas Medlin',
+    'pets': 'Pet photography by Cas Medlin',
+    'portraits': 'Portrait photography by Cas Medlin',
+    'wildlife': 'Wildlife photography by Cas Medlin',
+    'events': 'Event photography by Cas Medlin',
+    'astrophotography': 'Astrophotography and night sky photography by Cas Medlin',
+  };
+
+  const imageEntries = images.map(img => {
+    const altText = imageAltText[img.category.toLowerCase()] || `${img.category} photography by Cas Medlin`;
+    return `
   <url>
     <loc>${baseUrl}/${img.category.toLowerCase()}</loc>
     <lastmod>${img.lastmod}</lastmod>
@@ -73,9 +85,10 @@ export const GET: APIRoute = async () => {
     <priority>0.6</priority>
     <image:image>
       <image:loc>${baseUrl}${img.path.replace(/ /g, '%20').replace(/\(/g, '%28').replace(/\)/g, '%29')}</image:loc>
-      <image:title>${img.category} Photography - ${path.basename(img.path)}</image:title>
+      <image:title>${altText}</image:title>
     </image:image>
-  </url>`).join('');
+  </url>`;
+  }).join('');
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
