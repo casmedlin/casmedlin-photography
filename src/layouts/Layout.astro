@@ -26,15 +26,24 @@ const navLinks = [
   { href: '/about', label: 'About' },
 ];
 
-const allPages = ['/', '/portraits', '/events', '/pets', '/wildlife', '/landscapes', '/architecture', '/astrophotography', '/about'];
 const currentPath = Astro.url.pathname.replace(/\/$/, '').replace(/\/index\.html$/, '') || '/';
-const currentIndex = allPages.indexOf(currentPath);
-const safeIndex = currentIndex === -1 ? 0 : currentIndex;
+
+const pageNavigation: Record<string, { prev: string; next: string }> = {
+  '/': { prev: '/about', next: '/portraits' },
+  '/portraits': { prev: '/', next: '/events' },
+  '/events': { prev: '/portraits', next: '/pets' },
+  '/pets': { prev: '/events', next: '/wildlife' },
+  '/wildlife': { prev: '/pets', next: '/landscapes' },
+  '/landscapes': { prev: '/wildlife', next: '/architecture' },
+  '/architecture': { prev: '/landscapes', next: '/astrophotography' },
+  '/astrophotography': { prev: '/architecture', next: '/about' },
+  '/about': { prev: '/astrophotography', next: '/' },
+};
+
+const nav = pageNavigation[currentPath] || pageNavigation['/'];
+const prevHref = nav.prev;
+const nextHref = nav.next;
 const isHomePage = currentPath === '/';
-const prevPageIndex = safeIndex === 0 ? allPages.length - 1 : safeIndex - 1;
-const nextPageIndex = safeIndex === allPages.length - 1 ? 0 : safeIndex + 1;
-const prevHref = allPages[prevPageIndex];
-const nextHref = allPages[nextPageIndex];
 ---
 
 <!doctype html>
