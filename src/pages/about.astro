@@ -2,52 +2,114 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="About Cas Medlin | Freelance Photographer & Graphic Designer NC" description="Meet Cas Medlin - freelance photographer and graphic designer based in Iredell County, North Carolina. Christian, creative, and passionate about capturing life's moments." image="/DSC06596.webp" schemaType="AboutPage" breadcrumbs={[{ name: 'About', url: '/about' }]}>
+<Layout title="About Cas Medlin | Freelance Photographer, Graphic Designer & IT Consultant NC" description="Meet Cas Medlin - freelance photographer, graphic designer, and IT consultant based in Iredell County, North Carolina. Christian, creative, and passionate about capturing life's moments." image="/DSC06596.webp" schemaType="AboutPage" breadcrumbs={[{ name: 'About', url: '/about' }]}>
   <div class="content">
     <div class="hero">
       <div class="hero-image">
-        <img src="/DSC06596.webp" alt="Cas Medlin - Freelance Photographer and Graphic Designer" fetchpriority="high" width="400" height="300" />
+        <img src="/DSC06596.webp" alt="Cas Medlin - Freelance Photographer, Graphic Designer, and IT Consultant" fetchpriority="high" width="400" height="300" />
       </div>
       <div class="hero-text">
-        <h1>Hi, I'm Cas Medlin</h1>
-        <p class="subtitle">Freelance Photographer & Graphic Designer in Iredell County, NC</p>
+        <h1>Cas Medlin — Freelance Photographer, Graphic Designer &amp; IT Consultant</h1>
+        <p class="subtitle">Based in Iredell County, NC, serving Mooresville, Troutman, Statesville, and the greater Charlotte area</p>
       </div>
     </div>
 
     <div class="about-grid">
       <div class="about-text">
-        <p>Based in Iredell County, North Carolina, serving the greater Charlotte area including Mooresville, Troutman, and Statesville.</p>
-        <p>I'm a passionate Christian, photographer, and graphic designer dedicated to capturing life's meaningful moments. Whether it's the perfect landscape, a cherished pet, or a milestone event, I bring creativity and care to every session.</p>
-        <p>Check out my other project at <a href="https://www.biblicalencouragement.org/" target="_blank" rel="noopener">Biblical Encouragement</a> for biblically rooted encouragement.</p>
-        <p>I currently serve as photographer and digital media coordinator for <a href="https://faithstatesville.org/" target="_blank" rel="noopener">Faith Church Statesville</a>.</p>
-        <p>I have also served as a photographer for <a href="https://crossroadscare.clinic/" target="_blank" rel="noopener">Crossroads Care Clinic</a> particularly at the last few Life Banquets.</p>
+        <p>I'm a passionate Christian, photographer, graphic designer, and IT consultant dedicated to capturing life's meaningful moments, designing compelling visuals, and keeping technology running smoothly. From landscapes and portraits to creative design and IT solutions, I bring creativity and care to every project.</p>
       </div>
-
-      <div class="contact-section">
-        <div class="contact-card">
-          <h2>Let's Work Together</h2>
-          <p>Have a project in mind or want to book a session?</p>
-          <a href="mailto:info@casmedlin.com" class="email-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-            info@casmedlin.com
-          </a>
-        </div>
-
-        <div class="services">
-          <h3>Specialties</h3>
-          <ul>
-            <li><a href="/landscapes">Landscape Photography</a></li>
-            <li><a href="/wildlife">Wildlife & Nature</a></li>
-            <li><a href="/portraits">Portrait Sessions</a></li>
-            <li><a href="/events">Event Coverage</a></li>
-            <li><a href="/pets">Pet Photography</a></li>
-            <li><a href="/astrophotography">Astrophotography</a></li>
-            <li><a href="/architecture">Architecture</a></li>
-          </ul>
-        </div>
+      <div class="contact-card">
+        <h2>Let's Work Together</h2>
+        <p>Have a project in mind or want to book a session?</p>
+        <a href="mailto:info@casmedlin.com" class="email-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          info@casmedlin.com
+        </a>
       </div>
     </div>
-  </div>
+
+    <section class="resume-section experience">
+        <h2>Experience</h2>
+        <div class="resume-grid">
+          <div class="resume-item">
+            <div class="resume-item-header">
+              <h3>Digital Media Coordinator</h3>
+              <span class="resume-org"><a href="https://faithstatesville.org/" target="_blank" rel="noopener">Faith Church, Statesville</a></span>
+              <span class="resume-date">August 2022 — Present</span>
+            </div>
+            <p>Manages social media platforms and coordinates the creation of digital media assets. Assists at the IT booth and photographs church events for official content posting.</p>
+          </div>
+
+          <div class="resume-item">
+            <div class="resume-item-header">
+              <h3>Founder</h3>
+              <span class="resume-org"><a href="https://www.biblicalencouragement.org/" target="_blank" rel="noopener">Biblical Encouragement, Online</a></span>
+              <span class="resume-date">May 2019 — Present</span>
+            </div>
+            <p>Develops and manages new Christian content multiple times per week. Media is distributed across Facebook, Twitter, Instagram, YouTube, and TikTok, reaching an audience of over 14 million people.</p>
+          </div>
+
+          <div class="resume-item">
+            <div class="resume-item-header">
+              <h3>Photographer</h3>
+              <span class="resume-org"><a href="https://crossroadscare.clinic/" target="_blank" rel="noopener">Crossroads Care Clinic, Statesville</a></span>
+              <span class="resume-date">Life Banquets</span>
+            </div>
+            <p>Serves as photographer for Crossroads Care Clinic particularly at the last few Life Banquets.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="resume-section education">
+        <h2>Education</h2>
+        <div class="resume-grid">
+          <div class="resume-item">
+            <div class="resume-item-header">
+              <h3>Graphic Design Certificate & Business Administration A.A.S.</h3>
+              <span class="resume-org">Mitchell Community College, Statesville, NC</span>
+              <span class="resume-date">January 2024 — May 2026</span>
+            </div>
+          </div>
+
+          <div class="resume-item">
+            <div class="resume-item-header">
+              <h3>Certificate</h3>
+              <span class="resume-org">School of Kingdom Ministry, Statesville, NC</span>
+              <span class="resume-date">September 2025 — May 2026</span>
+            </div>
+          </div>
+
+          <div class="resume-item">
+            <div class="resume-item-header">
+              <h3>High School Diploma</h3>
+              <span class="resume-org">Liberty University Online Academy, Lynchburg, VA</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="resume-section skills">
+        <h2>Skills</h2>
+        <ul class="skills-list">
+          <li><strong>Digital Media:</strong> Graphic Design (Adobe Creative Suite, Canva, Affinity, Apple Creator Studio), web design, photography, videography, and video editing (Final Cut Pro, DaVinci Resolve)</li>
+          <li><strong>Web Management:</strong> Website and social media platform management</li>
+          <li><strong>IT Systems:</strong> Computer building and repair; Professional software management including TrueNAS, Database, Hosting, DNS, and Cloudflare</li>
+          <li><strong>Photography:</strong> <a href="/landscapes">Landscape Photography</a>, <a href="/wildlife">Wildlife &amp; Nature</a>, <a href="/portraits">Portrait Sessions</a>, <a href="/events">Event Coverage</a>, <a href="/pets">Pet Photography</a>, <a href="/astrophotography">Astrophotography</a>, <a href="/architecture">Architecture</a></li>
+        </ul>
+      </section>
+
+      <section class="resume-section volunteer">
+        <h2>Volunteer Experience</h2>
+        <p>I have a passion for participating in mission trips and volunteer projects with organizations including:</p>
+        <ul class="volunteer-list">
+          <li><a href="https://www.samaritanspurse.org/" target="_blank" rel="noopener">Samaritan's Purse</a></li>
+          <li>Southern Baptist Association</li>
+          <li>Down East Mission</li>
+          <li><a href="https://purplehearthomesusa.org/" target="_blank" rel="noopener">Purple Heart Homes</a></li>
+          <li>Food Banks</li>
+        </ul>
+      </section>
+    </div>
   <div class="nav-buttons">
     <a href="/astrophotography" class="nav-button">&lt; Go Back</a>
     <a href="/" class="nav-button">Next &gt;</a>
@@ -67,19 +129,26 @@ import Layout from '../layouts/Layout.astro';
     margin-bottom: 4rem;
   }
   .hero-image {
-    flex: 1;
-    max-width: 400px;
+    flex: 0 0 auto;
+    width: 400px;
+    max-width: 100%;
   }
   .hero-image img {
     width: 100%;
     height: auto;
     border-radius: 16px;
+    display: block;
+  }
+  .hero-text {
+    flex: 1;
+    min-width: 0;
   }
   .hero-text h1 {
     font-size: 3rem;
     font-weight: 300;
     margin-bottom: 0.5rem;
     letter-spacing: -0.02em;
+    overflow-wrap: break-word;
   }
   .subtitle {
     font-size: 1.25rem;
@@ -90,17 +159,13 @@ import Layout from '../layouts/Layout.astro';
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
+    margin-bottom: 2rem;
   }
   .about-text p {
     font-size: 1.125rem;
     line-height: 1.8;
     color: #a3a3a3;
     margin-bottom: 1.5rem;
-  }
-  .contact-section {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
   }
   .contact-card {
     padding: 2rem;
@@ -150,35 +215,114 @@ import Layout from '../layouts/Layout.astro';
   .email-btn:focus {
     color: #fff;
   }
-  .services h3 {
-    font-size: 1.25rem;
-    font-weight: 400;
-    margin-bottom: 1rem;
+  .resume-section {
+    margin-top: 4rem;
+  }
+  .resume-section h2 {
+    font-size: 1.75rem;
+    font-weight: 300;
+    color: #fff;
+    margin-bottom: 2rem;
+    letter-spacing: -0.01em;
+    border-bottom: 1px solid #2a2a2a;
+    padding-bottom: 0.75rem;
+  }
+  .resume-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  .resume-item {
+    padding: 1.5rem;
+    border: 1px solid #2a2a2a;
+    border-radius: 12px;
+    background: rgba(4, 4, 4, 0.05);
+  }
+  .resume-item-header h3 {
+    font-size: 1.15rem;
+    font-weight: 500;
     color: #e5e5e5;
+    margin-bottom: 0.25rem;
   }
-  .services ul {
-    list-style: none;
-    padding: 0;
-  }
-  .services li {
-    padding: 0.5rem 0;
-    color: #a3a3a3;
+  .resume-org {
+    display: block;
     font-size: 1rem;
-    border-bottom: 1px solid #1a1a1a;
+    color: #22c55e;
+    margin-bottom: 0.125rem;
   }
-  .services li:last-child {
-    border-bottom: none;
-  }
-  .services li a {
+  .resume-org a {
     color: #22c55e;
     text-decoration: none;
-    display: inline-block;
-    width: 100%;
   }
-  .services li a:hover,
-  .services li a:focus {
-    color: #16a34a;
+  .resume-org a:hover {
+    text-decoration: underline;
+  }
+  .resume-date {
+    display: block;
+    font-size: 0.875rem;
+    color: #6b6b6b;
+    margin-bottom: 0.75rem;
+  }
+  .resume-item p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #a3a3a3;
+  }
+  .skills-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .skills-list li {
+    padding: 1.25rem;
+    border: 1px solid #2a2a2a;
+    border-radius: 12px;
+    background: rgba(4, 4, 4, 0.05);
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #a3a3a3;
+  }
+  .skills-list li strong {
+    color: #e5e5e5;
+    font-weight: 500;
+  }
+  .skills-list li a {
+    color: #22c55e;
     text-decoration: none;
+  }
+  .skills-list li a:hover {
+    color: #16a34a;
+  }
+  .volunteer-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.75rem;
+  }
+  .volunteer-list li {
+    padding: 0.75rem 1rem;
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    color: #a3a3a3;
+    font-size: 1rem;
+    text-align: center;
+  }
+  .volunteer-list li a {
+    color: #a3a3a3;
+    text-decoration: none;
+    display: block;
+  }
+  .volunteer-list li a:hover {
+    color: #22c55e;
+  }
+  .resume-section.volunteer p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #a3a3a3;
+    margin-bottom: 1.5rem;
   }
   @media (max-width: 768px) {
     .hero {
