@@ -1,0 +1,62 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import dimensions from '../../data/image-dimensions.json';
+
+function getDims(src) {
+  const cleanSrc = src.startsWith('/') ? src.slice(1) : src;
+  const parts = cleanSrc.split('/');
+  const file = parts.pop();
+  const folder = parts[parts.length - 1] || 'root';
+  return dimensions[folder]?.[file] || { width: 800, height: 600 };
+}
+
+const images = [
+  { src: '/graphic-design/capture-map-brochure/brochure1.webp', alt: 'A three-paneled brochure that advertises a companion app for photographers — this is the front side by Cas Medlin' },
+  { src: '/graphic-design/capture-map-brochure/brochure2.webp', alt: 'A three-paneled brochure that advertises a companion app for photographers — this is the back side by Cas Medlin' },
+];
+---
+
+<Layout title="Capture Map Brochure | Cas Medlin" description="Conceptual brochure for a photographer companion app by Cas Medlin. Educational project." image="/graphic-design/capture-map-brochure/brochure1.webp" breadcrumbs={[{ name: 'Graphic Design', url: '/graphic-design' }, { name: 'Brochure', url: '/graphic-design/capture-map-brochure' }]}>
+  <div class="project-header">
+    <a href="/graphic-design" class="back-link">&larr; Back to Graphic Design</a>
+    <span class="card-category">Print Design</span>
+    <h1>Capture Map Brochure</h1>
+  </div>
+
+  <div class="project-gallery">
+    {images.map((img) => {
+      const dims = getDims(img.src);
+      return (
+        <div class="gallery-item">
+          <img src={img.src} alt={img.alt} width={dims.width} height={dims.height} loading="lazy" />
+        </div>
+      );
+    })}
+  </div>
+
+  <div class="project-content">
+    <p>This conceptual booklet was created for a Graphic Design Two course at Mitchell Community College to promote a fictional companion app for a photographer. All text is original, developed through independent research and personal experiences. The photography features a blend of my own original images and curated restaurant photography utilized strictly under Fair Use guidelines for educational, non-commercial purposes.</p>
+    <p>All design work and primary photography were created by Cas Medlin, a freelance graphic designer and photographer. Whether you need a brochure or an advertising booklet, I am ready to collaborate. Do not hesitate to reach out today to discuss your next project: <a href="mailto:info@casmedlin.com" style="color:#22c55e">info@casmedlin.com</a></p>
+    <a href="https://www.behance.net/casmedlin" target="_blank" rel="noopener" class="project-link">View on Behance</a>
+  </div>
+
+  <div class="nav-buttons">
+    <a href="/graphic-design/book-cover" class="nav-button">&lt; Prev</a>
+    <a href="/graphic-design" class="nav-button">Next &gt;</a>
+  </div>
+</Layout>
+
+<style>
+  .project-header { padding: 0 0.5rem; margin-bottom: 1.5rem; }
+  .back-link { color: #22c55e; text-decoration: none; font-size: 0.875rem; display: inline-block; margin-bottom: 0.75rem; }
+  .back-link:hover { opacity: 0.8; }
+  .card-category { display: inline-block; font-size: 0.75rem; color: #22c55e; background: rgba(34,197,94,0.1); padding: 0.125rem 0.5rem; border-radius: 4px; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 500; }
+  .project-header h1 { font-size: 1.5rem; font-weight: 600; color: #fff; margin: 0.5rem 0 0; line-height: 1.3; }
+  .project-gallery { max-width: 900px; margin: 0 auto 1.5rem; display: flex; flex-direction: column; gap: 1rem; }
+  .gallery-item { border-radius: 10px; overflow: hidden; border: 1px solid #2a2a2a; }
+  .gallery-item img { width: 100%; height: auto; display: block; }
+  .project-content { max-width: 900px; margin: 0 auto 2rem; padding: 0 0.5rem; }
+  .project-content p { color: #a3a3a3; font-size: 1rem; line-height: 1.7; margin: 0 0 1.5rem; }
+  .project-link { display: inline-flex; align-items: center; gap: 0.375rem; color: #22c55e; text-decoration: none; font-size: 0.875rem; font-weight: 500; }
+  .project-link:hover { opacity: 0.8; }
+</style>

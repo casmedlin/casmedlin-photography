@@ -586,5 +586,96 @@
       "width": 1240,
       "height": 844
     }
+  },
+  "art-crawl": {
+    "alt.webp": { "width": 1200, "height": 1600 },
+    "poster.webp": { "width": 1200, "height": 1600 },
+    "preview.webp": { "width": 2000, "height": 1500 }
+  },
+  "can-label": {
+    "can.webp": { "width": 1600, "height": 1200 },
+    "label.webp": { "width": 1885, "height": 872 }
+  },
+  "capture-map-brochure": {
+    "brochure1.webp": { "width": 1600, "height": 1237 },
+    "brochure2.webp": { "width": 1600, "height": 1237 }
+  },
+  "flyer": {
+    "flyer.webp": { "width": 2000, "height": 1500 },
+    "inclass15.webp": { "width": 1275, "height": 1650 }
+  },
+  "for-king-country": {
+    "album-cover.webp": { "width": 1600, "height": 1600 },
+    "booklet1.webp": { "width": 1600, "height": 1600 },
+    "booklet10.webp": { "width": 1600, "height": 1600 },
+    "booklet2.webp": { "width": 1600, "height": 800 },
+    "booklet3.webp": { "width": 1600, "height": 800 },
+    "booklet4.webp": { "width": 1600, "height": 800 },
+    "booklet5.webp": { "width": 1600, "height": 800 },
+    "booklet6.webp": { "width": 1600, "height": 800 },
+    "booklet7.webp": { "width": 1600, "height": 800 },
+    "booklet8.webp": { "width": 1600, "height": 800 },
+    "booklet9.webp": { "width": 1600, "height": 800 },
+    "cover2.webp": { "width": 1600, "height": 800 },
+    "cover3.webp": { "width": 1600, "height": 1600 },
+    "vinyl.webp": { "width": 2000, "height": 1500 }
+  },
+  "how-to-guide": {
+    "guide1.webp": { "width": 1237, "height": 1600 },
+    "guide2.webp": { "width": 1785, "height": 1155 },
+    "guide3.webp": { "width": 1785, "height": 1155 },
+    "guide4.webp": { "width": 1785, "height": 1155 },
+    "guide5.webp": { "width": 1785, "height": 1155 },
+    "guide6.webp": { "width": 1785, "height": 1155 },
+    "guide7.webp": { "width": 893, "height": 1155 },
+    "preview.webp": { "width": 2000, "height": 1291 }
+  },
+  "menu": {
+    "Menu.webp": { "width": 1785, "height": 1155 },
+    "Menu2.webp": { "width": 1785, "height": 1155 },
+    "mockup.webp": { "width": 2000, "height": 1501 }
+  },
+  "phil-robertson": {
+    "ipad-mockup.webp": { "width": 2000, "height": 2000 },
+    "spread.webp": { "width": 2000, "height": 1295 }
+  },
+  "summer-maine": {
+    "GRD155midtermCMedlin2nd.webp": { "width": 893, "height": 1155 },
+    "GRD155midtermCMedlin2nd2.webp": { "width": 1785, "height": 1155 },
+    "GRD155midtermCMedlin2nd3.webp": { "width": 1785, "height": 1155 },
+    "GRD155midtermCMedlin2nd4.webp": { "width": 1785, "height": 1155 },
+    "GRD155midtermCMedlin2nd5.webp": { "width": 1785, "height": 1155 },
+    "GRD155midtermCMedlin2nd6.webp": { "width": 893, "height": 1155 },
+    "hero.webp": { "width": 2000, "height": 1291 }
+  },
+  "book-cover": {
+    "preview.webp": { "width": 2000, "height": 1500 },
+    "cover1.webp": { "width": 1600, "height": 1108 },
+    "cover2.webp": { "width": 1600, "height": 1108 }
+  },
+  "yeti-mag": {
+    "10.webp": { "width": 2295, "height": 1485 },
+    "11.webp": { "width": 2295, "height": 1485 },
+    "12.webp": { "width": 2295, "height": 1485 },
+    "13.webp": { "width": 2295, "height": 1485 },
+    "14.webp": { "width": 2295, "height": 1485 },
+    "15.webp": { "width": 2295, "height": 1485 },
+    "16.webp": { "width": 2295, "height": 1485 },
+    "17.webp": { "width": 2295, "height": 1485 },
+    "18.webp": { "width": 2295, "height": 1485 },
+    "19.webp": { "width": 2295, "height": 1485 },
+    "2.webp": { "width": 2295, "height": 1485 },
+    "20.webp": { "width": 2295, "height": 1485 },
+    "21.webp": { "width": 2295, "height": 1485 },
+    "3.webp": { "width": 2295, "height": 1485 },
+    "4.webp": { "width": 2295, "height": 1485 },
+    "5.webp": { "width": 2295, "height": 1485 },
+    "6.webp": { "width": 2295, "height": 1485 },
+    "7.webp": { "width": 2295, "height": 1485 },
+    "8.webp": { "width": 2295, "height": 1485 },
+    "9.webp": { "width": 2295, "height": 1485 },
+    "hero.webp": { "width": 2000, "height": 1291 },
+    "page_42.webp": { "width": 551, "height": 713 },
+    "yeti1.webp": { "width": 1224, "height": 1584 }
   }
 }

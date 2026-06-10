@@ -1,0 +1,75 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import dimensions from '../../data/image-dimensions.json';
+
+function getDims(src) {
+  const cleanSrc = src.startsWith('/') ? src.slice(1) : src;
+  const parts = cleanSrc.split('/');
+  const file = parts.pop();
+  const folder = parts[parts.length - 1] || 'root';
+  return dimensions[folder]?.[file] || { width: 800, height: 600 };
+}
+
+const images = [
+  { src: '/graphic-design/for-king-country/vinyl.webp', alt: 'For King and Country vinyl packaging by Cas Medlin' },
+  { src: '/graphic-design/for-king-country/album-cover.webp', alt: 'For King and Country album cover design by Cas Medlin' },
+  { src: '/graphic-design/for-king-country/cover2.webp', alt: 'Album interior with vinyl and booklet storage by Cas Medlin' },
+  { src: '/graphic-design/for-king-country/cover3.webp', alt: 'Back cover with song list and band photo by Cas Medlin' },
+  { src: '/graphic-design/for-king-country/booklet1.webp', alt: 'Lyric booklet cover with the brothers by Cas Medlin' },
+  { src: '/graphic-design/for-king-country/booklet2.webp', alt: 'For King and Country lyric booklet page by Cas Medlin' },
+  { src: '/graphic-design/for-king-country/booklet3.webp', alt: 'For King and Country lyric booklet page by Cas Medlin' },
+  { src: '/graphic-design/for-king-country/booklet4.webp', alt: 'For King and Country lyric booklet page by Cas Medlin' },
+  { src: '/graphic-design/for-king-country/booklet5.webp', alt: 'For King and Country lyric booklet page by Cas Medlin' },
+  { src: '/graphic-design/for-king-country/booklet6.webp', alt: 'For King and Country lyric booklet page by Cas Medlin' },
+  { src: '/graphic-design/for-king-country/booklet7.webp', alt: 'For King and Country lyric booklet page by Cas Medlin' },
+  { src: '/graphic-design/for-king-country/booklet8.webp', alt: 'For King and Country lyric booklet page by Cas Medlin' },
+  { src: '/graphic-design/for-king-country/booklet9.webp', alt: 'For King and Country lyric booklet page by Cas Medlin' },
+  { src: '/graphic-design/for-king-country/booklet10.webp', alt: 'For King and Country lyric booklet page by Cas Medlin' },
+];
+---
+
+<Layout title="For King & Country Vinyl Album & Booklet | Cas Medlin" description="Vinyl album packaging and booklet design for For King and Country by Cas Medlin." image="/graphic-design/for-king-country/vinyl.webp" breadcrumbs={[{ name: 'Graphic Design', url: '/graphic-design' }, { name: 'For King & Country', url: '/graphic-design/for-king-country' }]}>
+  <div class="project-header">
+    <a href="/graphic-design" class="back-link">&larr; Back to Graphic Design</a>
+    <span class="card-category">Packaging</span>
+    <h1>For King &amp; Country Vinyl Album &amp; Booklet</h1>
+  </div>
+
+  <div class="project-gallery">
+    {images.map((img) => {
+      const dims = getDims(img.src);
+      return (
+        <div class="gallery-item">
+          <img src={img.src} alt={img.alt} width={dims.width} height={dims.height} loading="lazy" />
+        </div>
+      );
+    })}
+  </div>
+
+  <div class="project-content">
+    <p>This project was created for an InDesign course at Mitchell Community College. All images, copy, and vector assets are utilized under Fair Use guidelines for educational purposes. This is a conceptual project for one of my favorite bands, For King and Country, and is not for commercial use. This is not in association with For King and Country. I took the majority of the pictures (all except for the one with their parents) in this and did all the design work.</p>
+    <p>The inside of the album stores the vinyl and booklet with a picture. The back cover includes a list of songs and a picture of the band. The lyric booklet cover features the brothers on the cover.</p>
+    <p>All design work was created by Cas Medlin, a freelance graphic designer and photographer. Whether you need album packaging, a booklet, or custom design work, I am ready to collaborate. Do not hesitate to reach out today to discuss your next project: <a href="mailto:info@casmedlin.com" style="color:#22c55e">info@casmedlin.com</a></p>
+    <a href="https://www.behance.net/casmedlin" target="_blank" rel="noopener" class="project-link">View on Behance</a>
+  </div>
+
+  <div class="nav-buttons">
+    <a href="/graphic-design/phil-robertson" class="nav-button">&lt; Prev</a>
+    <a href="/graphic-design/how-to-guide" class="nav-button">Next &gt;</a>
+  </div>
+</Layout>
+
+<style>
+  .project-header { padding: 0 0.5rem; margin-bottom: 1.5rem; }
+  .back-link { color: #22c55e; text-decoration: none; font-size: 0.875rem; display: inline-block; margin-bottom: 0.75rem; }
+  .back-link:hover { opacity: 0.8; }
+  .card-category { display: inline-block; font-size: 0.75rem; color: #22c55e; background: rgba(34,197,94,0.1); padding: 0.125rem 0.5rem; border-radius: 4px; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 500; }
+  .project-header h1 { font-size: 1.5rem; font-weight: 600; color: #fff; margin: 0.5rem 0 0; line-height: 1.3; }
+  .project-gallery { max-width: 900px; margin: 0 auto 1.5rem; display: flex; flex-direction: column; gap: 1rem; }
+  .gallery-item { border-radius: 10px; overflow: hidden; border: 1px solid #2a2a2a; }
+  .gallery-item img { width: 100%; height: auto; display: block; }
+  .project-content { max-width: 900px; margin: 0 auto 2rem; padding: 0 0.5rem; }
+  .project-content p { color: #a3a3a3; font-size: 1rem; line-height: 1.7; margin: 0 0 1.5rem; }
+  .project-link { display: inline-flex; align-items: center; gap: 0.375rem; color: #22c55e; text-decoration: none; font-size: 0.875rem; font-weight: 500; }
+  .project-link:hover { opacity: 0.8; }
+</style>
