@@ -339,6 +339,14 @@ const pages: Array<{ url: string; images: { src: string; alt: string }[] }> = [
     ],
   },
   {
+    url: '/graphic-design/self-portrait',
+    images: [
+      { src: 'graphic-design/self-portrait/selfportrait.webp', alt: 'Reference photograph for self portrait by Cas Medlin' },
+      { src: 'graphic-design/self-portrait/1.webp', alt: 'Self portrait vector illustration by Cas Medlin' },
+      { src: 'graphic-design/self-portrait/2.webp', alt: 'Self portrait vector illustration alternate view by Cas Medlin' },
+    ],
+  },
+  {
     url: '/about',
     images: [
 
