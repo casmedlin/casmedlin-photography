@@ -669,6 +669,11 @@
     "cover1.webp": { "width": 1600, "height": 1108 },
     "cover2.webp": { "width": 1600, "height": 1108 }
   },
+  "self-portrait": {
+    "1.webp": { "width": 1080, "height": 1350 },
+    "2.webp": { "width": 1080, "height": 1350 },
+    "selfportrait.webp": { "width": 6000, "height": 4500 }
+  },
   "yeti-mag": {
     "10.webp": { "width": 2295, "height": 1485 },
     "11.webp": { "width": 2295, "height": 1485 },
